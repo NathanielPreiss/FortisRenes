@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Level Name="untitled">
+  <Map Filename="default.bmp" Columns="10" Rows="10" SetColumns="2" SetRows="4">
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="2" />
+    <Tile ImagePos="2" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" hey.ron="3" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="2" />
+    <Tile ImagePos="2" />
+    <Tile ImagePos="2" />
+    <Tile ImagePos="2" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="2" />
+    <Tile ImagePos="2" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="2" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+    <Tile ImagePos="0" />
+  </Map>
+  <Objects>
+    <Object PosX="500" PosY="342" Width="64" Height="64" Filename="Tree.png" />
+    <Object PosX="429" PosY="118" Width="64" Height="64" Filename="Tree.png" />
+    <Object PosX="135" PosY="128" Width="64" Height="64" Filename="Tree.png" />
+  </Objects>
+</Level>

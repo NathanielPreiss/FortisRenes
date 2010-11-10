@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<npc_dialog>
+            <npc_ally>
+                      <level_tutorial>
+                                 <dialog_one>O God! O God! we're all going to die!</dialog_one>
+                                 <dialog_two>Here is a gun meet me by the exit.</dialog_two>
+                                 <dialog_three>Let's get outta here fool!</dialog_three>
+                      </level_tutorial>
+                      <level_one>
+                                 <dialog_one>Our first objective is their prison camps.</dialog_one>
+                                 <dialog_two/>
+                                 <dialog_three>I like turtles...</dialog_three>
+                      </level_one>
+                      <level_two>
+                                 <dialog_one>Our next objective is their communications array.</dialog_one>
+                                 <dialog_two>You still with us?</dialog_two>
+                                 <dialog_three>All your base are belong to us!</dialog_three>
+                      </level_two>
+                      <level_three>
+                                 <dialog_one/>
+                                 <dialog_two/>
+                                 <dialog_three>We're not gonna die. You know why? Because we are so...very...pretty.</dialog_three>
+                      </level_three>
+                      <level_four>
+                                 <dialog_one>We are prepared for the final assault. Are you ready for this?</dialog_one>
+                                 <dialog_two/>
+                                 <dialog_three>Your no techno viking but you'll do.</dialog_three>
+                      </level_four>
+            </npc_ally>
+</npc_dialog>
