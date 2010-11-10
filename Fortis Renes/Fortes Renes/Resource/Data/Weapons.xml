@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<weapons>
+         <knife>
+                <m_nRange value="0"/>
+                <m_nDamage value="150"/>
+                <m_nMaxAmmo value="1"/>
+                <m_nWeaponID value="0"/>
+                <m_nBulletID value="0"/>
+                <m_fAccuracy value ="0.0"/>
+                <m_fRateOfFire value="0.5"/>
+                <m_nMaxMagazine value="1"/>
+                <m_fReloadTime value="0"/>
+                <m_nBulletSpeed value="0"/>
+                <m_nSoundDistance value="0"/>
+                <m_nNumBulletsFired value="1"/>
+         </knife>
+         <pistol>
+                <m_nRange value="50"/>
+                <m_nDamage value="15"/>
+                <m_nMaxAmmo value="36"/>
+                <m_nWeaponID value="1"/>
+                <m_nBulletID value="1"/>
+                <m_fAccuracy value ="5.0"/>
+                <m_fRateOfFire value="0.25"/>
+                <m_nMaxMagazine value="6"/>
+                <m_fReloadTime value="1.5"/>
+                <m_nBulletSpeed value="200"/>
+                <m_nSoundDistance value="50"/>
+                <m_nNumBulletsFired value="1"/>
+         </pistol>
+         <machinegun>
+                <m_nRange value="100"/>
+                <m_nDamage value="10"/>
+                <m_nMaxAmmo value="250"/>
+                <m_nWeaponID value="2"/>
+                <m_nBulletID value="1"/>
+                <m_fAccuracy value ="10.0"/>
+                <m_fRateOfFire value="0.15"/>
+                <m_nMaxMagazine value="25"/>
+                <m_fReloadTime value="1.5"/>
+                <m_nBulletSpeed value="200"/>
+                <m_nSoundDistance value="100"/>
+                <m_nNumBulletsFired value="1"/>
+         </machinegun>
+         <rifle>
+                <m_nRange value="200"/>
+                <m_nDamage value="40"/>
+                <m_nMaxAmmo value="50"/>
+                <m_nWeaponID value="3"/>
+                <m_nBulletID value="1"/>
+                <m_fAccuracy value ="2.5"/>
+                <m_fRateOfFire value="0.5"/>
+                <m_nMaxMagazine value="5"/>
+                <m_fReloadTime value="1"/>
+                <m_nBulletSpeed value="350"/>
+                <m_nSoundDistance value="300"/>
+                <m_nNumBulletsFired value="1"/>
+         </rifle>
+         <shotgun>
+                <m_nRange value="50"/>
+                <m_nDamage value="50"/>
+                <m_nMaxAmmo value="25"/>
+                <m_nWeaponID value="4"/>
+                <m_nBulletID value="1"/>
+                <m_fAccuracy value ="15.0"/>
+                <m_fRateOfFire value="0.5"/>
+                <m_nMaxMagazine value="5"/>
+                <m_fReloadTime value="1.5"/>
+                <m_nBulletSpeed value="200"/>
+                <m_nSoundDistance value="250"/>
+                <m_nNumBulletsFired value="10"/>
+         </shotgun>
+         <bazooka>
+                <m_nRange value="500"/>
+                <m_nDamage value="150"/>
+                <m_nMaxAmmo value="10"/>
+                <m_nWeaponID value="5"/>
+                <m_nBulletID value="2"/>
+                <m_fAccuracy value ="5.0"/>
+                <m_fRateOfFire value="1"/>
+                <m_nMaxMagazine value="2"/>
+                <m_fReloadTime value="3"/>
+                <m_nBulletSpeed value="150"/>
+                <m_nSoundDistance value="500"/>
+                <m_nNumBulletsFired value="1"/>
+         </bazooka>
+         <rynov>
+                <m_nRange value="500"/>
+                <m_nDamage value="200"/>
+                <m_nMaxAmmo value="2500"/>
+                <m_nWeaponID value="6"/>
+                <m_nBulletID value="2"/>
+                <m_fAccuracy value ="10.0"/>
+                <m_fRateOfFire value="0.1"/>
+                <m_nMaxMagazine value="500"/>
+                <m_fReloadTime value="5"/>
+                <m_nBulletSpeed value="600"/>
+                <m_nSoundDistance value="1000"/>
+                <m_nNumBulletsFired value="5"/>
+         </rynov>
+        
+</weapons>
+
+
+
+
+
+
+
+

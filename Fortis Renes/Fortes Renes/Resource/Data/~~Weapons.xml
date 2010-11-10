@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<weapons>
+         <knife>
+                <m_nRange value="0"/>
+                <m_nDamage value="0"/>
+                <m_nMaxAmmo value="0"/>
+                <m_nCurrAmmo value="0"/>
+                <m_nWeaponID value="0"/>
+                <m_nBulletID value="0"/>
+                <m_fAccuracy value ="0"/>
+                <m_fRateOfFire value="0"/>
+                <m_nMaxMagazine value="0"/>
+                <m_fReloadTimer value="0"/>
+                <m_nBulletSpeed value="0"/>
+                <m_nCurrMagazine value="0"/>
+                <m_nSoundDistance value="0"/>
+                <m_nNumBulletsFired value="0"/>
+         </knife>
+         <pistol>
+                <m_nRange value="1"/>
+                <m_nDamage value="1"/>
+                <m_nMaxAmmo value="1"/>
+                <m_nCurrAmmo value="1"/>
+                <m_nWeaponID value="1"/>
+                <m_nBulletID value="1"/>
+                <m_fAccuracy value ="1"/>
+                <m_fRateOfFire value="1"/>
+                <m_nMaxMagazine value="1"/>
+                <m_fReloadTimer value="1"/>
+                <m_nBulletSpeed value="1"/>
+                <m_nCurrMagazine value="1"/>
+                <m_nSoundDistance value="1"/>
+                <m_nNumBulletsFired value="1"/>
+         </pistol>
+         <machinegun>
+                <m_nRange value="2"/>
+                <m_nDamage value="2"/>
+                <m_nMaxAmmo value="2"/>
+                <m_nCurrAmmo value="2"/>
+                <m_nWeaponID value="2"/>
+                <m_nBulletID value="2"/>
+                <m_fAccuracy value ="2"/>
+                <m_fRateOfFire value="2"/>
+                <m_nMaxMagazine value="2"/>
+                <m_fReloadTimer value="2"/>
+                <m_nBulletSpeed value="2"/>
+                <m_nCurrMagazine value="2"/>
+                <m_nSoundDistance value="2"/>
+                <m_nNumBulletsFired value="2"/>
+         </machinegun>
+         <rifle>
+                <m_nRange value="15"/>
+                <m_nDamage value="3"/>
+                <m_nMaxAmmo value="3"/>
+                <m_nCurrAmmo value="3"/>
+                <m_nWeaponID value="3"/>
+                <m_nBulletID value="3"/>
+                <m_fAccuracy value ="3"/>
+                <m_fRateOfFire value="3"/>
+                <m_nMaxMagazine value="3"/>
+                <m_fReloadTimer value="3"/>
+                <m_nBulletSpeed value="3"/>
+                <m_nCurrMagazine value="3"/>
+                <m_nSoundDistance value="3"/>
+                <m_nNumBulletsFired value="3"/>
+         </rifle>
+         <shotgun>
+                <m_nRange value="4"/>
+                <m_nDamage value="4"/>
+                <m_nMaxAmmo value="4"/>
+                <m_nCurrAmmo value="4"/>
+                <m_nWeaponID value="4"/>
+                <m_nBulletID value="4"/>
+                <m_fAccuracy value ="4"/>
+                <m_fRateOfFire value="4"/>
+                <m_nMaxMagazine value="4"/>
+                <m_fReloadTimer value="4"/>
+                <m_nBulletSpeed value="4"/>
+                <m_nCurrMagazine value="4"/>
+                <m_nSoundDistance value="4"/>
+                <m_nNumBulletsFired value="4"/>
+         </shotgun>
+         <bazooka>
+                <m_nRange value="5"/>
+                <m_nDamage value="5"/>
+                <m_nMaxAmmo value="5"/>
+                <m_nCurrAmmo value="5"/>
+                <m_nWeaponID value="5"/>
+                <m_nBulletID value="5"/>
+                <m_fAccuracy value ="5.5"/>
+                <m_fRateOfFire value="5"/>
+                <m_nMaxMagazine value="5"/>
+                <m_fReloadTimer value="5"/>
+                <m_nBulletSpeed value="5"/>
+                <m_nCurrMagazine value="5"/>
+                <m_nSoundDistance value="5"/>
+                <m_nNumBulletsFired value="5"/>
+         </bazooka>
+         <rynov>
+                <m_nRange value="6"/>
+                <m_nDamage value="6"/>
+                <m_nMaxAmmo value="6"/>
+                <m_nCurrAmmo value="6"/>
+                <m_nWeaponID value="6"/>
+                <m_nBulletID value="6"/>
+                <m_fAccuracy value ="6"/>
+                <m_fRateOfFire value="6"/>
+                <m_nMaxMagazine value="6"/>
+                <m_fReloadTimer value="6"/>
+                <m_nBulletSpeed value="6"/>
+                <m_nCurrMagazine value="6"/>
+                <m_nSoundDistance value="6"/>
+                <m_nNumBulletsFired value="6"/>
+         </rynov>
+        
+</weapons>
+
+

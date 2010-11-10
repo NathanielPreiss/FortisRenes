@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Level Name="untitled">
+  <Map Filename="default.bmp" Columns="2" Rows="2" SetColumns="2" SetRows="4">
+    <Tile ImagePos="0" />
+    <Tile ImagePos="1" dont.drown="0" />
+    <Tile ImagePos="7" />
+    <Tile ImagePos="4" />
+  </Map>
+  <Objects>
+    <Object PosX="26" PosY="29" Width="64" Height="64" Filename="Tree.png" />
+  </Objects>
+</Level>

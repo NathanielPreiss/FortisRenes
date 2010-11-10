@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Sheet Name="JeGBullet.png" NumAnimations="1">
+  <Animation0 Name="Green Fireball" FrameDuration="0" Looping="True" NumFrames="6">
+    <Frame0 DrawRect="{X=512,Y=0,Width=32,Height=64}" CollisionRect="{X=0,Y=0,Width=0,Height=0}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame1 DrawRect="{X=544,Y=0,Width=32,Height=64}" CollisionRect="{X=0,Y=0,Width=0,Height=0}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame2 DrawRect="{X=576,Y=0,Width=32,Height=64}" CollisionRect="{X=0,Y=0,Width=0,Height=0}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame3 DrawRect="{X=608,Y=0,Width=32,Height=64}" CollisionRect="{X=0,Y=0,Width=0,Height=0}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame4 DrawRect="{X=640,Y=0,Width=32,Height=64}" CollisionRect="{X=0,Y=0,Width=0,Height=0}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame5 DrawRect="{X=672,Y=0,Width=32,Height=64}" CollisionRect="{X=0,Y=0,Width=0,Height=0}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation0>
+</Sheet>
