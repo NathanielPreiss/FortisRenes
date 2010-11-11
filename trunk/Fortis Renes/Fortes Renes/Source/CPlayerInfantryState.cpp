@@ -42,13 +42,14 @@ void CPlayerInfantryState::Update(float fElapsedTime)
 #pragma region Attack Controls
 	if(CSGD_DirectInput::GetInstance()->MouseButtonDown(0))
 	{
+		m_pPlayer->Shoot();
 		m_pPlayer->GetCurrWeapon()->FireWeapon(m_pPlayer);
 	}
-	if(CSGD_DirectInput::GetInstance()->KeyPressed(DIK_UP))
+	if(CSGD_DirectInput::GetInstance()->KeyPressed(DIK_UP) || CSGD_DirectInput::GetInstance()->MouseWheelMovement() < 0)
 	{
 		m_pPlayer->NextWeapon();
 	}
-	if(CSGD_DirectInput::GetInstance()->KeyPressed(DIK_DOWN))
+	if(CSGD_DirectInput::GetInstance()->KeyPressed(DIK_DOWN) || CSGD_DirectInput::GetInstance()->MouseWheelMovement() > 0)
 	{
 		m_pPlayer->PrevWeapon();
 	}
@@ -68,29 +69,35 @@ void CPlayerInfantryState::Update(float fElapsedTime)
 
 	if( CSGD_DirectInput::GetInstance()->KeyDown( DIK_W ) )
 	{
+		m_pPlayer->Walk();
 		m_pPlayer->SetPosY( m_pPlayer->GetPosY() - (m_pPlayer->GetSpeed() * fElapsedTime));
 	}
 	else if( CSGD_DirectInput::GetInstance()->KeyDown( DIK_S ) )
 	{
+		m_pPlayer->Walk();
 		m_pPlayer->SetPosY( m_pPlayer->GetPosY() + (m_pPlayer->GetSpeed() * fElapsedTime));
 	}
 
 	if( CSGD_DirectInput::GetInstance()->KeyDown( DIK_A ) )
 	{
+		m_pPlayer->Walk();
 		m_pPlayer->SetPosX( m_pPlayer->GetPosX() - (m_pPlayer->GetSpeed() * fElapsedTime));
 	}
 	else if( CSGD_DirectInput::GetInstance()->KeyDown( DIK_D ) )
 	{
+		m_pPlayer->Walk();
 		m_pPlayer->SetPosX( m_pPlayer->GetPosX() + (m_pPlayer->GetSpeed() * fElapsedTime));
 	}
 	else if( CSGD_DirectInput::GetInstance()->KeyPressed( DIK_RETURN ))
 	{
 		if( m_pPlayer->GetTalkBool() == true )
 		{
+			m_pPlayer->Idle();
 			CDialogueManager::GetInstance()->UseProgressDialogue();
 			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
 		}
 	}
+	m_pPlayer->Idle();
 
 #pragma endregion
 
@@ -150,7 +157,11 @@ void CPlayerInfantryState::Render(float fCamPosX, float fCamPosY)
 		sprintf_s(buffer, _countof(buffer), "%d", m_pPlayer->GetCurrWeapon()->GetCurrAmmo());
 		CBitmapFont::GetInstance()->DrawCenter(buffer, 550, 410, 0.5f);
 	}
-	CSGD_TextureManager::GetInstance()->Draw(m_pPlayer->GetImageID(), (int)(m_pPlayer->GetPosX() - (m_pPlayer->GetWidth() * 0.5f) - fCamPosX),
+	
+	if(m_pPlayer->GetAnimation() != NULL && m_pPlayer->GetAnimation()->currSheet != NULL)
+		m_pPlayer->GetAnimation()->Render((m_pPlayer->GetPosX()-m_pPlayer->GetWidth()*0.5f) - fCamPosX, (m_pPlayer->GetPosY()-m_pPlayer->GetHeight()*0.5f) - fCamPosY, 1.0f, 1.0f);
+	else
+		CSGD_TextureManager::GetInstance()->Draw(m_pPlayer->GetImageID(), (int)(m_pPlayer->GetPosX() - (m_pPlayer->GetWidth() * 0.5f) - fCamPosX),
 														 (int)(m_pPlayer->GetPosY() - (m_pPlayer->GetHeight() * 0.5f) - fCamPosY), 
 														 1.0f, 1.0f, 0, m_pPlayer->GetWidth()*0.5f, m_pPlayer->GetHeight()*0.5f);
 	}

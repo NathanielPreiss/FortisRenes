@@ -156,7 +156,7 @@ bool CMediumInfantry::CheckCollision( CBase *pBase )
 {
 	return CEnemy::CheckCollision(pBase);
 }
-
+/*
 void CMediumInfantry::Shoot(void)
 {
 	if( GetFacing().fX == 1.0f )
@@ -219,4 +219,4 @@ void CMediumInfantry::Walk(void)
 			SetCurrAnimation("WalkUp");
 		}
 	}
-}
+}*/

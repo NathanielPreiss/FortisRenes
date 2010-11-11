@@ -99,6 +99,7 @@ public:
 	IPlayerState* GetState(void) { return m_pPlayerState; }
 	bool GetTalkBool(void) { return m_bCanTalk; }
 
+	void SetFacing(float x, float y) { m_vFacingNormal.fX = x; m_vFacingNormal.fY = y; }
 	void SetPlayerState(IPlayerState* pPlayerState) { m_pPlayerState = pPlayerState; }
 	void SetCurrentWeapon(int nCurrentWeapon) { m_nCurrentWeapon = nCurrentWeapon; }
 	void LevelFinished(void);
@@ -109,6 +110,10 @@ public:
 	void Update(float fElapsedTime);
 	void Render(float fCamPosX, float fCamPosY);
 	void ChangeState( IPlayerState* newState );
+
+	void Walk(void);
+	void Shoot(void);
+	void Idle(void);
 	
 };
 #endif

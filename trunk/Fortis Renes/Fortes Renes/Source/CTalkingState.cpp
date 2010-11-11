@@ -35,7 +35,10 @@ void CTalkingState::Enter(void)
 bool CTalkingState::Input(void)
 {
 	if(CSGD_DirectInput::GetInstance()->CheckBufferedKeysEx())
+	{
 		CDialogueManager::GetInstance()->NextSentence();
+		CSGD_DirectInput::GetInstance()->ClearInput();
+	}
 
 	return true;
 }

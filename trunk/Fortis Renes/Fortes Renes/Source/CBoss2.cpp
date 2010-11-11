@@ -11,7 +11,10 @@ CBoss2::CBoss2(void) : CEnemy(WEP_RYNOV)
 {
 	SetType(OBJECT_ENEMY);
 	SetEnemyID(ENEMY_BOSS);
-	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/SaT_BossTwo.png", D3DCOLOR_XRGB(255,255,255)));
+//	SetImageID(CSGD_TxtureManager::GetInstance()->LoadTexture("Resource/Graphics/SaT_BossTwo.png", D3DCOLOR_XRGB(255,255,255)));
+//	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/SaT_BossTwo.png", D3DCOLOR_XRGB(255,255,255)));
+	SetAnimation(CAnimationManager::GetInstance()->LoadAnimation("Resource\\Data\\Animations\\JeG_Boss2.bin"));
+	GetAnimation()->currAnimation->Play();
 	SetMoneyReward(100);
 	SetRepReward(50);
 	SetWidth(40);
@@ -22,7 +25,6 @@ CBoss2::CBoss2(void) : CEnemy(WEP_RYNOV)
 	SetHealth(100);
 	m_vDirection.fX = 0.0f;
 	m_vDirection.fY = 1.0f;
-	SetAnimation(0);
 	SetSpeed(50.0f);
 
 	// Spot 1
@@ -150,9 +152,7 @@ void CBoss2::Update(float fElapsedTime)
 
 void CBoss2::Render(float fCamPosX, float fCamPosY)
 {
-	RECT boss = {0,143,40,256};
-	CSGD_TextureManager::GetInstance()->Draw(GetImageID(), (int)((GetPosX() - GetWidth()*0.5f) - fCamPosX), 
-								(int)((GetPosY() - GetHeight() *0.5f) - fCamPosY), 1.0f, 1.0f, &boss, GetWidth()*0.5f, GetHeight()*0.5f, 0);
+	CEnemy::Render(fCamPosX,fCamPosY);
 }
 
 void CBoss2::HandleEvent(CEvent* pEvent)

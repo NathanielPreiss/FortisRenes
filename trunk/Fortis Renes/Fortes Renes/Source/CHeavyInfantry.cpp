@@ -147,7 +147,7 @@ bool CHeavyInfantry::CheckCollision( CBase *pBase )
 	}
 	return CEnemy::CheckCollision(pBase);
 }
-
+/*
 void CHeavyInfantry::Shoot(void)
 {
 	if( GetFacing().fX == 1.0f )
@@ -210,4 +210,4 @@ void CHeavyInfantry::Walk(void)
 			SetCurrAnimation("WalkUp");
 		}
 	}
-}
+}*/
