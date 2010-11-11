@@ -14,7 +14,9 @@ CBoss1::CBoss1(void) : CEnemy(WEP_RIFLE)
 {
 	SetType(OBJECT_ENEMY);
 	SetEnemyID(ENEMY_BOSS);
-	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/SaT_BossOne.png", D3DCOLOR_XRGB(255,255,255)));
+//	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/SaT_BossOne.png", D3DCOLOR_XRGB(255,255,255)));
+	SetAnimation(CAnimationManager::GetInstance()->LoadAnimation("Resource\\Data\\Animations\\JeG_Boss1.bin"));
+	GetAnimation()->currAnimation->Play();
 	SetMoneyReward(100);
 	SetRepReward(50);
 	SetWidth(40);
@@ -25,7 +27,6 @@ CBoss1::CBoss1(void) : CEnemy(WEP_RIFLE)
 	SetArmor(0);
 	m_vDirection.fX = 0.0f;
 	m_vDirection.fY = 1.0f;
-	SetAnimation(0);
 	m_fCounter = 0.5f;
 	m_fDestroyCounter = 7.0f;
 	m_bForCounter = false;
@@ -173,23 +174,6 @@ void CBoss1::Update(float fElapsedTime)
 //			CObjectManager::GetInstance()->RemoveObject(bomb3);
 //		}
 	}
-}
-
-void CBoss1::Render(float fCamPosX, float fCamPosY)
-{
-	//RECT tempRect = los;
-	//tempRect.top -= fCamPosY;
-	//tempRect.left -= fCamPosX;
-	//tempRect.right = tempRect.left + GetWidth();
-	//tempRect.bottom = tempRect.top + GetHeight();
-
-	RECT boss = {0,0,45,70};
-
-	CSGD_TextureManager::GetInstance()->Draw(GetImageID(), (int)((GetPosX() - GetWidth()*0.5f) - fCamPosX), 
-								(int)((GetPosY() - GetHeight() *0.5f) - fCamPosY), 1.0f, 1.0f, &boss, GetWidth()*0.5f, GetHeight()*0.5f, 0);
-
-	//CSGD_Direct3D::GetInstance()->GetSprite()->Flush();
-	//CSGD_Direct3D::GetInstance()->DrawRect(tempRect, 255,0,0);
 }
 
 void CBoss1::HandleEvent(CEvent* pEvent)

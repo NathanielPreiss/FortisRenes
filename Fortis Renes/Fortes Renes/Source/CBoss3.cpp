@@ -15,6 +15,8 @@ CBoss3::CBoss3(void) : CEnemy(WEP_RIFLE)
 	SetType(OBJECT_ENEMY);
 	SetEnemyID(ENEMY_BOSS);
 	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/SaT_BossThree.png", D3DCOLOR_XRGB(255,255,255)));
+	SetAnimation(CAnimationManager::GetInstance()->LoadAnimation("Resource\\Data\\Animations\\JeG_Boss3.bin"));
+	GetAnimation()->currAnimation->Play();
 	SetMoneyReward(100);
 	SetRepReward(50);
 	SetPosX(900);
@@ -164,8 +166,7 @@ void CBoss3::Render(float fCamPosX, float fCamPosY)
 	RECT boss = {0,0,38,66};
 	if(!tankmode)
 	{
-		CSGD_TextureManager::GetInstance()->Draw(GetImageID(), (int)((GetPosX() - GetWidth()*0.5f) - fCamPosX), 
-								(int)((GetPosY() - GetHeight() *0.5f) - fCamPosY), 1.0f, 1.0f, &boss, GetWidth()*0.5f, GetHeight()*0.5f, 0);
+		CEnemy::Render(fCamPosX,fCamPosY);
 	}
 	else
 	{

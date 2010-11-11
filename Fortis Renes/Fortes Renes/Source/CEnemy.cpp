@@ -187,8 +187,64 @@ bool CEnemy::CheckCollision( CBase *pBase )
 
 void CEnemy::Shoot(void)
 {
+	if( GetFacing().fX == 1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("FireRight");
+		}
+	}
+	else if( GetFacing().fX == -1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("FireLeft");
+		}
+	}
+	else if( GetFacing().fY == 1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("FireDown");
+		}
+	}
+	else if( GetFacing().fY == -1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("FireUp");
+		}
+	}
 }
 
 void CEnemy::Walk(void)
 {
+	if( GetFacing().fX == 1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("WalkRight");
+		}
+	}
+	else if( GetFacing().fX == -1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("WalkLeft");
+		}
+	}
+	else if( GetFacing().fY == 1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("WalkDown");
+		}
+	}
+	else if( GetFacing().fY == -1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("WalkUp");
+		}
+	}
 }

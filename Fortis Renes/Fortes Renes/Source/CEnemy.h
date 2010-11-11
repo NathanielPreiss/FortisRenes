@@ -64,8 +64,8 @@ public:
 
 	void ChangeState(IArtIntState*);
 	virtual bool CheckCollision( CBase *pBase );
-	virtual void Shoot(void);
-	virtual void Walk(void);
 
+	void Shoot(void);
+	void Walk(void);
 };
 #endif

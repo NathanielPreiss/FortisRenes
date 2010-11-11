@@ -21,7 +21,6 @@ public:
 	~CBoss1(void);
 
 	void Update(float fElapsedTime);
-	void Render(float fCamPosX, float fCamPosY);
 	void HandleEvent(CEvent* pEvent);
 	bool CheckCollision( CBase *pBase );
 };

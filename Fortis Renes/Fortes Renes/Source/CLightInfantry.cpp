@@ -158,7 +158,7 @@ bool CLightInfantry::CheckCollision( CBase *pBase )
 {
 	return CEnemy::CheckCollision(pBase);
 }
-
+/*
 void CLightInfantry::Shoot(void)
 {
 	if( GetFacing().fX == 1.0f )
@@ -221,4 +221,4 @@ void CLightInfantry::Walk(void)
 			SetCurrAnimation("WalkUp");
 		}
 	}
-}
+}*/

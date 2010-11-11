@@ -15,6 +15,7 @@
 #include "CGamePlayState.h"
 #include "CBullet.h"
 #include "CObjectManager.h"
+#include "CCursor.h"
 
 CPlayer::CPlayer(void)
 {
@@ -25,6 +26,8 @@ CPlayer::CPlayer(void)
 	SetHealth(GetMaxHealth());
 	m_fTimeBucket = 0.0f;
 	m_fConsumableTimer = 1.5f;
+	SetAnimation(CAnimationManager::GetInstance()->LoadAnimation("Resource\\Data\\Animations\\JeG_LightInfantry.bin"));
+	GetAnimation()->currAnimation->Play();
 }
 CPlayer::~CPlayer(void)
 {
@@ -342,8 +345,24 @@ void CPlayer::Update(float fElapsedTime)
 	m_pWeapon[m_nCurrentWeapon]->Update(fElapsedTime);
 
 	// Update facing normal
-	m_vFacingNormal.fX = GetVelX();
-	m_vFacingNormal.fY = GetVelY();
+	tVector2D toCursor;
+	toCursor.fX = CCursor::GetInstance()->GetPosX() - GetPosX();
+	toCursor.fY = CCursor::GetInstance()->GetPosY() - GetPosY();
+
+	if( abs(toCursor.fX) > abs(toCursor.fY) )
+	{
+		if( toCursor.fX > 0 )
+			SetFacing(1.0f,0.0f);
+		else
+			SetFacing(-1.0f,0.0f);
+	}
+	if( abs(toCursor.fY) > abs(toCursor.fX) )
+	{
+		if( toCursor.fY > 0 )
+			SetFacing(0.0f,1.0f);
+		else
+			SetFacing(0.0f,-1.0f);
+	}
 
 	m_vFacingNormal = Vector2DNormalize(m_vFacingNormal);
 
@@ -359,8 +378,11 @@ void CPlayer::Update(float fElapsedTime)
 		SetPosY(mapHeight-GetHeight()*0.5f);
 	}
 
-	if(this->GetHealth() < 0)
+	if(this->GetHealth() <= 0)
+	{
+		SetCurrAnimation("Die");
 		this->SetHealth(0);
+	}
 
 	// Checking for and sending events of the tile I'm on
 	int c, r;
@@ -372,6 +394,9 @@ void CPlayer::Update(float fElapsedTime)
 	
 	// Update the camera's position
 	CCamera::GetInstance()->UpdateCameraPos(GetPosX(), GetPosY());
+
+	if(GetAnimation() != NULL && GetAnimation()->currSheet != NULL)
+		GetAnimation()->Update(fElapsedTime);
 }
 void CPlayer::Render(float fCamPosX, float fCamPosY)
 {
@@ -417,4 +442,100 @@ void CPlayer::ChangeState( IPlayerState* newState )
 {
 	m_pPlayerState = newState;
 	m_pPlayerState->Enter();
+}
+
+void CPlayer::Shoot(void)
+{
+	if( GetFacing().fX == 1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("FireRight");
+		}
+	}
+	else if( GetFacing().fX == -1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("FireLeft");
+		}
+	}
+	else if( GetFacing().fY == 1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("FireDown");
+		}
+	}
+	else if( GetFacing().fY == -1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("FireUp");
+		}
+	}
+}
+
+void CPlayer::Walk(void)
+{
+	if( GetFacing().fX == 1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("WalkRight");
+		}
+	}
+	else if( GetFacing().fX == -1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("WalkLeft");
+		}
+	}
+	else if( GetFacing().fY == 1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("WalkDown");
+		}
+	}
+	else if( GetFacing().fY == -1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("WalkUp");
+		}
+	}
+}
+
+void CPlayer::Idle(void)
+{
+	if( GetFacing().fX == 1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("IdleRight");
+		}
+	}
+	else if( GetFacing().fX == -1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("IdleLeft");
+		}
+	}
+	else if( GetFacing().fY == 1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("IdleDown");
+		}
+	}
+	else if( GetFacing().fY == -1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("IdleUp");
+		}
+	}
 }

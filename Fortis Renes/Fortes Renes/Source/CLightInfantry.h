@@ -18,7 +18,7 @@ public:
 
 	void HandleEvent(CEvent* pEvent);
 
-	void Shoot(void);
-	void Walk(void);
+//	void Shoot(void);
+//	void Walk(void);
 };
 #endif
