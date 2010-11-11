@@ -60,7 +60,7 @@ void CPlayerInfantryState::Update(float fElapsedTime)
 	}
 	if(CSGD_DirectInput::GetInstance()->KeyPressed(DIK_SPACE))
 	{
-		m_pPlayer->GetInventory().UseItem(m_pPlayer->GetCurrItem());
+		m_pPlayer->GetInventory()->UseItem(m_pPlayer->GetCurrItem());
 	}
 
 #pragma endregion
@@ -138,7 +138,7 @@ void CPlayerInfantryState::Render(float fCamPosX, float fCamPosY)
 	sprintf_s(buffer, _countof(buffer), "Health: %d : %d", m_pPlayer->GetMaxHealth(), m_pPlayer->GetHealth());
 	CBitmapFont::GetInstance()->Draw(buffer, 64, 410, 0.5f);
 	
-	m_pPlayer->GetInventory().Render(m_pPlayer->GetCurrItem());
+	m_pPlayer->GetInventory()->Render(m_pPlayer->GetCurrItem());
 
 	if( m_pPlayer->GetNumWeapons() > 0 )
 	{

@@ -60,12 +60,12 @@ void CGamePlayState::Enter(void)
 
 	m_vEmitter.push_back(pEmitter);
 
-	LoadLevel("Resource/Levels/ArtilleryLevel.bin");
+	//LoadLevel("Resource/Levels/ArtilleryLevel.bin");
 	//LoadLevel("Resource/Levels/JeG_Level1.bin");
 	//LoadLevel("Resource/Levels/JeG_Level2.bin");
 	//LoadLevel("Resource/Levels/JeG_Level4BossFight.bin");
 	//LoadLevel("Resource/Levels/testtesttest.bin");
-	//LoadLevel("Resource/Levels/JeG_TutorialLevel.bin");
+	LoadLevel("Resource/Levels/JeG_TutorialLevel.bin");
 	//LoadLevel("Resource/Levels/JeG_RebelBase.bin");
 
 	m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/GamePlayStateBG.wav");

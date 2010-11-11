@@ -25,6 +25,8 @@ private:
 	int m_nMoney;
 	int m_nRep;
 	int m_nNumWeapons;
+	bool m_bMoving;
+	bool m_bFiring;
 	unsigned char m_chResearchArmorLevel;
 	unsigned char m_chResearchWeaponLevel;
 	unsigned char m_chResearchConsumableLevel;
@@ -77,7 +79,7 @@ public:
 	void PrevWeapon(void);
 	void NextItem(void);
 
-	CInventory GetInventory(void) { return m_Inventory; }
+	CInventory* GetInventory(void) { return &m_Inventory; }
 	int GetCurrItem(void)	{ return m_nCurrentItem; }
 	int GetSpeed(void)		{ return m_nSpeed; }
 	IPlayerState* GetPlayerState(void) { return m_pPlayerState; }
@@ -97,7 +99,12 @@ public:
 	tVector2D& GetFacing(void) { return m_vFacingNormal; }
 	unsigned char GetProgress(void) { return m_chProgress; }
 	IPlayerState* GetState(void) { return m_pPlayerState; }
+	CWeapon* GetWeapon(int nWeaponID) { return m_pWeapon[nWeaponID]; }
 	bool GetTalkBool(void) { return m_bCanTalk; }
+	bool GetIfFiring(void) { return m_bFiring; }
+	bool GetIfMoving(void) { return m_bMoving; }
+	void SetIfFiring(bool bFiring) { m_bFiring = bFiring; }
+	void SetIfMoving(bool bMoving) { m_bMoving = bMoving; }
 
 	void SetFacing(float x, float y) { m_vFacingNormal.fX = x; m_vFacingNormal.fY = y; }
 	void SetPlayerState(IPlayerState* pPlayerState) { m_pPlayerState = pPlayerState; }
