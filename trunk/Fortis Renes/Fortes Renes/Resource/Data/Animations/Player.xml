@@ -50,7 +50,7 @@
     <Frame1 DrawRect="{X=85,Y=106,Width=20,Height=33}" CollisionRect="{X=88,Y=114,Width=11,Height=23}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0"/>
     <Frame2 DrawRect="{X=105,Y=106,Width=20,Height=33}" CollisionRect="{X=108,Y=114,Width=11,Height=23}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0"/>
   </Animation11>
-  <Animation12 Name="FireLeft" FrameDuration="0" Looping="False" NumFrames="3">
+  <Animation12 Name="FireLeft" FrameDuration="0" Looping="False" NumFrames="1">
     <Frame0 DrawRect="{X=192,Y=102,Width=20,Height=36}" CollisionRect="{X=195,Y=104,Width=15,Height=30}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0"/>
   </Animation12>
   <Animation13 Name="FireRight" FrameDuration="0" Looping="False" NumFrames="1">
