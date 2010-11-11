@@ -53,7 +53,7 @@ bool CGameOverState::Input(void)
 			CEventSystem::GetInstance()->ClearEvents();
 			CGamePlayState::GetInstance()->UnloadLevel();
 			CGamePlayState::GetInstance()->LoadLevelHelper();
-			//CGamePlayState::GetInstance()->SetDead(false);
+			CGamePlayState::GetInstance()->SetDead(false);
 			CGame::GetInstance()->RemoveTopState();
 			break;
 		case 1:

@@ -72,6 +72,7 @@ void CGamePlayState::Enter(void)
 	CSGD_WaveManager::GetInstance()->SetPan(m_nBGMID, CGame::GetInstance()->GetPanning() );
 	CSGD_WaveManager::GetInstance()->SetVolume(m_nBGMID, CGame::GetInstance()->GetBGMVolume() );
 	CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
+	
 
 	CCamera::GetInstance()->UpdateCameraPos(CPlayer::GetInstance()->GetPosX(), CPlayer::GetInstance()->GetPosY());
 
@@ -154,6 +155,7 @@ void CGamePlayState::Update(float fElapsedTime)
 			UnloadLevel();
 			CPlayer::GetInstance()->ChangeState(CPlayerInfantryState::GetInstance());
 			LoadLevel("Resource/Levels/JeG_RebelBase.bin");
+
 			m_bLevelEnd = false;
 		}
 	}
@@ -165,6 +167,7 @@ void CGamePlayState::Update(float fElapsedTime)
 		UnloadLevel();
 		LoadLevel("Resource/Levels/JeG_Level1.bin");
 		m_bLevel1 = false;
+
 	}
 
 	if( m_bLevel2 == true )
