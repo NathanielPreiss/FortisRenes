@@ -10,6 +10,7 @@
 CBoss2::CBoss2(void) : CEnemy(WEP_RYNOV)
 {
 	SetType(OBJECT_ENEMY);
+	SetEnemyID(ENEMY_BOSS);
 	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/SaT_BossTwo.png", D3DCOLOR_XRGB(255,255,255)));
 	SetMoneyReward(100);
 	SetRepReward(50);
