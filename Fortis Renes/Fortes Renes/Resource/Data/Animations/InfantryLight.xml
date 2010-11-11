@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Sheet Name="SaT_EnemiesLight.png" NumAnimations="13">
+  <Animation0 Name="IdleDown" FrameDuration="0" Looping="True" NumFrames="1">
+    <Frame0 DrawRect="{X=64,Y=77,Width=19,Height=33}" CollisionRect="{X=66,Y=81,Width=12,Height=25}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation0>
+  <Animation1 Name="IdleUp" FrameDuration="0" Looping="True" NumFrames="1">
+    <Frame0 DrawRect="{X=106,Y=79,Width=14,Height=33}" CollisionRect="{X=107,Y=81,Width=9,Height=24}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation1>
+  <Animation2 Name="IdleLeft" FrameDuration="0" Looping="True" NumFrames="1">
+    <Frame0 DrawRect="{X=151,Y=78,Width=14,Height=34}" CollisionRect="{X=154,Y=83,Width=7,Height=25}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation2>
+  <Animation3 Name="IdleRight" FrameDuration="0" Looping="True" NumFrames="1">
+    <Frame0 DrawRect="{X=213,Y=80,Width=18,Height=35}" CollisionRect="{X=216,Y=85,Width=8,Height=25}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation3>
+  <Animation4 Name="WalkDown" FrameDuration="0" Looping="True" NumFrames="2">
+    <Frame0 DrawRect="{X=62,Y=77,Width=21,Height=35}" CollisionRect="{X=67,Y=79,Width=9,Height=28}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame1 DrawRect="{X=85,Y=77,Width=18,Height=35}" CollisionRect="{X=88,Y=79,Width=9,Height=28}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation4>
+  <Animation5 Name="WalkUp" FrameDuration="0" Looping="True" NumFrames="2">
+    <Frame0 DrawRect="{X=103,Y=76,Width=21,Height=34}" CollisionRect="{X=108,Y=80,Width=9,Height=25}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame1 DrawRect="{X=126,Y=76,Width=21,Height=34}" CollisionRect="{X=130,Y=80,Width=9,Height=25}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation5>
+  <Animation6 Name="WalkLeft" FrameDuration="0" Looping="True" NumFrames="3">
+    <Frame0 DrawRect="{X=150,Y=78,Width=15,Height=35}" CollisionRect="{X=153,Y=83,Width=7,Height=27}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame1 DrawRect="{X=172,Y=78,Width=15,Height=35}" CollisionRect="{X=176,Y=83,Width=7,Height=27}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame2 DrawRect="{X=254,Y=80,Width=15,Height=35}" CollisionRect="{X=258,Y=83,Width=7,Height=27}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation6>
+  <Animation7 Name="WalkRight" FrameDuration="0" Looping="True" NumFrames="3">
+    <Frame0 DrawRect="{X=214,Y=79,Width=18,Height=39}" CollisionRect="{X=217,Y=84,Width=7,Height=26}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame1 DrawRect="{X=191,Y=79,Width=18,Height=39}" CollisionRect="{X=195,Y=84,Width=7,Height=26}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame2 DrawRect="{X=233,Y=79,Width=18,Height=39}" CollisionRect="{X=238,Y=84,Width=7,Height=26}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation7>
+  <Animation8 Name="FireRight" FrameDuration="0" Looping="False" NumFrames="1">
+    <Frame0 DrawRect="{X=275,Y=79,Width=25,Height=37}" CollisionRect="{X=277,Y=83,Width=9,Height=26}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation8>
+  <Animation9 Name="FireLeft" FrameDuration="0" Looping="False" NumFrames="1">
+    <Frame0 DrawRect="{X=302,Y=80,Width=27,Height=34}" CollisionRect="{X=310,Y=82,Width=11,Height=28}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation9>
+  <Animation10 Name="FireDown" FrameDuration="0" Looping="False" NumFrames="1">
+    <Frame0 DrawRect="{X=84,Y=74,Width=19,Height=41}" CollisionRect="{X=88,Y=79,Width=10,Height=30}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation10>
+  <Animation11 Name="FireUp" FrameDuration="0" Looping="False" NumFrames="1">
+    <Frame0 DrawRect="{X=128,Y=80,Width=16,Height=37}" CollisionRect="{X=130,Y=81,Width=10,Height=27}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation11>
+  <Animation12 Name="Die" FrameDuration="0" Looping="True" NumFrames="1">
+    <Frame0 DrawRect="{X=95,Y=112,Width=48,Height=40}" CollisionRect="{X=105,Y=131,Width=25,Height=14}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation12>
+</Sheet>
