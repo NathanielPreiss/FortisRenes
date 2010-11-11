@@ -83,6 +83,9 @@ void CGamePlayState::Enter(void)
 	CEventSystem::GetInstance()->RegisterClient("level.three",this);
 	CEventSystem::GetInstance()->RegisterClient("spawn.helicopter",this);
 	CEventSystem::GetInstance()->RegisterClient("ally.rescue",this);
+	CEventSystem::GetInstance()->RegisterClient("seige.level",this);
+	CEventSystem::GetInstance()->RegisterClient("enter.lobby",this);
+	CEventSystem::GetInstance()->RegisterClient("leave.lobby",this);
 
 }
 bool CGamePlayState::Input(void)
@@ -102,7 +105,7 @@ void CGamePlayState::LoadLevelHelper()
 	{
 	case 0:
 		{
-			LoadLevel("Resource/Levels/TutorialLevel.bin");
+			LoadLevel("Resource/Levels/JeG_TutorialLevel.bin");
 		}
 		break;
 	case 1:
@@ -139,13 +142,20 @@ void CGamePlayState::Update(float fElapsedTime)
 
 	if( m_bLevelEnd == true )
 	{
-		CMessageSystem::GetInstance()->ClearMessages();
-		CEventSystem::GetInstance()->ClearEvents();
-		CEnemySquad::GetInstance()->EmptySquad();
-		UnloadLevel();
-		CPlayer::GetInstance()->ChangeState(CPlayerInfantryState::GetInstance());
-		LoadLevel("Resource/Levels/JeG_RebelBase.bin");
-		m_bLevelEnd = false;
+		if( CPlayer::GetInstance()->GetProgress() > 4 )
+		{
+			CGame::GetInstance()->ChangeState(COutroCinematicState::GetInstance());
+		}
+		else
+		{
+			CMessageSystem::GetInstance()->ClearMessages();
+			CEventSystem::GetInstance()->ClearEvents();
+			CEnemySquad::GetInstance()->EmptySquad();
+			UnloadLevel();
+			CPlayer::GetInstance()->ChangeState(CPlayerInfantryState::GetInstance());
+			LoadLevel("Resource/Levels/JeG_RebelBase.bin");
+			m_bLevelEnd = false;
+		}
 	}
 
 	if( m_bLevel1 == true )
@@ -211,12 +221,12 @@ void CGamePlayState::Update(float fElapsedTime)
 		m_bNextLevel = false;
 	}
 
-//	if( CPlayer::GetInstance()->GetHealth() <= 0 )
-//	{
-//		CEventSystem::GetInstance()->ClearEvents();
-//		UnloadLevel();
-//		LoadLevelHelper();
-//	}
+	if( CPlayer::GetInstance()->GetHealth() <= 0 )
+	{
+		CEventSystem::GetInstance()->ClearEvents();
+		UnloadLevel();
+		LoadLevelHelper();
+	}
 
 	CObjectManager::GetInstance()->UpdateObjects(fElapsedTime);
 
@@ -240,12 +250,6 @@ void CGamePlayState::Render(void)
 	{
 		CBitmapFont::GetInstance()->Draw("CHEAT ENABLED", 5, 5, 0.5f);
 	}
-	
-	//if(boss3->GetHealth() < 0)
-	//{
-	//	CBitmapFont::GetInstance()->Draw("LEVEL COMPLETE", 0, 0, 1.0f);
-	//	CBitmapFont::GetInstance()->Draw("GO BACK TO THE REBEL BASE", 0, 32, 1.0f);
-	//}
 }
 void CGamePlayState::Exit(void)
 {
@@ -273,6 +277,9 @@ void CGamePlayState::Exit(void)
 	CEventSystem::GetInstance()->UnregisterClient("level.three",this);
 	CEventSystem::GetInstance()->UnregisterClient("spawn.helicopter",this);
 	CEventSystem::GetInstance()->UnregisterClient("ally.rescue",this);
+	CEventSystem::GetInstance()->UnregisterClient("seige.level",this);
+	CEventSystem::GetInstance()->UnregisterClient("enter.lobby",this);
+	CEventSystem::GetInstance()->UnregisterClient("leave.lobby",this);
 
 	for(unsigned int i = 0; i < m_vEmitter.size(); i++)
 	{
@@ -569,7 +576,7 @@ void CGamePlayState::HandleEvent( CEvent* pEvent )
 			m_bLevel3 = true;
 	}
 
-	if( pEvent->GetEventID() == "siege.level" )
+	if( pEvent->GetEventID() == "seige.level" )
 	{
 		if( m_bLevel4 == false )
 			m_bLevel4 = true;

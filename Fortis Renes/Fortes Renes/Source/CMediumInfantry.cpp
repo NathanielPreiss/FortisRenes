@@ -11,9 +11,9 @@ CMediumInfantry::CMediumInfantry(void) : CEnemy(WEP_RIFLE)
 	SetEnemyID(ENEMY_MEDIUM);
 	SetMaxHealth(200);
 	SetHealth(GetMaxHealth());
-	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource\\Graphics\\MediumInfantry_editor.png"));
-//	SetAnimation(CAnimationManager::GetInstance()->LoadAnimation("Resource\\Data\\Animations\\JeG_MediumInfantry.bin"));
-//	GetAnimation()->currAnimation->Play();
+//	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource\\Graphics\\MediumInfantry_editor.png"));
+	SetAnimation(CAnimationManager::GetInstance()->LoadAnimation("Resource\\Data\\Animations\\JeG_MediumInfantry.bin"));
+	GetAnimation()->currAnimation->Play();
 	SetMoneyReward(5);
 	SetRepReward(1);
 	SetWidth(32);
@@ -164,7 +164,6 @@ void CMediumInfantry::Shoot(void)
 		if( GetAnimation() != NULL )
 		{
 			SetCurrAnimation("FireRight");
-			GetAnimation()->currAnimation->Play();
 		}
 	}
 	else if( GetFacing().fX == -1.0f )
@@ -172,25 +171,22 @@ void CMediumInfantry::Shoot(void)
 		if( GetAnimation() != NULL )
 		{
 			SetCurrAnimation("FireLeft");
-			GetAnimation()->currAnimation->Play();
 		}
 	}
-//	else if( GetFacing().fY == 1.0f )
-//	{
-//		if( GetAnimation() != NULL )
-//		{
-//			SetCurrAnimation("LI Shoot");
-//			GetAnimation()->currAnimation->Play();
-//		}
-//	}
-//	else if( GetFacing().fY == -1.0f )
-//	{
-//		if( GetAnimation() != NULL )
-//		{
-//			SetCurrAnimation("LI Up Shoot");
-//			GetAnimation()->currAnimation->Play();
-//		}
-//	}
+	else if( GetFacing().fY == 1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("FireDown");
+		}
+	}
+	else if( GetFacing().fY == -1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("FireUp");
+		}
+	}
 }
 
 void CMediumInfantry::Walk(void)
@@ -200,7 +196,6 @@ void CMediumInfantry::Walk(void)
 		if( GetAnimation() != NULL )
 		{
 			SetCurrAnimation("WalkRight");
-			GetAnimation()->currAnimation->Play();
 		}
 	}
 	else if( GetFacing().fX == -1.0f )
@@ -208,7 +203,6 @@ void CMediumInfantry::Walk(void)
 		if( GetAnimation() != NULL )
 		{
 			SetCurrAnimation("WalkLeft");
-			GetAnimation()->currAnimation->Play();
 		}
 	}
 	else if( GetFacing().fY == 1.0f )
@@ -216,7 +210,6 @@ void CMediumInfantry::Walk(void)
 		if( GetAnimation() != NULL )
 		{
 			SetCurrAnimation("WalkDown");
-			GetAnimation()->currAnimation->Play();
 		}
 	}
 	else if( GetFacing().fY == -1.0f )
@@ -224,7 +217,6 @@ void CMediumInfantry::Walk(void)
 		if( GetAnimation() != NULL )
 		{
 			SetCurrAnimation("WalkUp");
-			GetAnimation()->currAnimation->Play();
 		}
 	}
 }

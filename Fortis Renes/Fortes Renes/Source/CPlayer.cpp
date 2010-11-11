@@ -107,7 +107,6 @@ void CPlayer::NewPlayer(void)
 	CEventSystem::GetInstance()->RegisterClient("player_use_healthpack", this);
 	CEventSystem::GetInstance()->RegisterClient("player_use_adrenaline", this);
 	CEventSystem::GetInstance()->RegisterClient("next.weapon",this);
-	CEventSystem::GetInstance()->RegisterClient("enemy.died",this);
 	m_nSpeed = 250;
 	SetArmor(0);
 	SetPosX(320.0f);
@@ -130,7 +129,7 @@ void CPlayer::NewPlayer(void)
 	}
 	m_nCurrentWeapon = 0;
 	m_nCurrentItem = 0;
-	m_nNumWeapons = -1;
+	m_nNumWeapons = 0;
 }
 void CPlayer::AddWeapon(int nWeapon)
 {
@@ -399,23 +398,14 @@ void CPlayer::HandleEvent(CEvent* pEvent)
 	}
 	if( pEvent->GetEventID() == "player_use_adrenaline" && pEvent->GetParam() == this )
 	{
+		m_Inventory.ReduceNumItem(CON_ADRENALINE);
 		m_bConActive = true;
 		m_nSpeed *= 2;
 	}
 
 	if( pEvent->GetEventID() == "next.weapon" )
 	{
-		m_nNumWeapons++;
-	}
-	if( m_nNumWeapons < 1 && pEvent->GetEventID() == "enemy.died" )
-	{
-		tVector2D toEnemy;
-		CBase* pEnemy = (CBase*)pEvent->GetParam();
-
-		toEnemy.fX = pEnemy->GetPosX() - GetPosX();
-		toEnemy.fY = pEnemy->GetPosY() - GetPosY();
-
-		if( Vector2DLength(toEnemy) < 40 )
+		if( m_nNumWeapons < 6 )
 			m_nNumWeapons++;
 	}
 }
