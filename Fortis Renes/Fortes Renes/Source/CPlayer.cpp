@@ -272,7 +272,7 @@ bool CPlayer::CheckCollision(CBase* pBase )
 		{			
 			if(GetPlayerState() == CJeepState::GetInstance() || GetPlayerState() == CTankState::GetInstance())
 			{
-				if(((CEnemy*)(pBase))->GetEnemyID() != ENEMY_TANK || ((CEnemy*)(pBase))->GetEnemyID() != ENEMY_BOSS)
+				if(((CEnemy*)(pBase))->GetEnemyID() != ENEMY_TANK && ((CEnemy*)(pBase))->GetEnemyID() != ENEMY_BOSS)
 				{
 					CEventSystem::GetInstance()->SendEvent("enemy.died",pBase);
 					CMessageSystem::GetInstance()->SendMsg( new CDestroyEnemy((CEnemy*)pBase) );
