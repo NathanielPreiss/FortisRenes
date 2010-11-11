@@ -212,4 +212,5 @@ void CBase::SetCurrAnimation(const char* szAnimationName)
 	}
 
 	GetAnimation()->currAnimation->Reset();
+	GetAnimation()->currAnimation->Play();
 }

@@ -63,6 +63,7 @@ void CEnemy::Update(float fElapsedTime)
 		SetDead(true);
 		CEventSystem::GetInstance()->SendEvent("enemy.died",this);
 		// Set animation to death animation
+		SetCurrAnimation("Die");
 	}
 
 	if( GetDead() == true && GetCull() == true )

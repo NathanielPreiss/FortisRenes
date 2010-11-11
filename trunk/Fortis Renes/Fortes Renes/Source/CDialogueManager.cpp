@@ -35,7 +35,7 @@ void CScript::Render()
 		return;
 	}
 
-	CBitmapFont::GetInstance()->Draw(m_vScript[m_nCurrentSentence]->GetSentence().c_str(),50,CSGD_Direct3D::GetInstance()->GetPresentParams()->BackBufferHeight-120,0.75f);
+	CBitmapFont::GetInstance()->Draw(m_vScript[m_nCurrentSentence]->GetSentence().c_str(),25,CSGD_Direct3D::GetInstance()->GetPresentParams()->BackBufferHeight-120,0.75f);
 }
 
 CDialogueManager::CDialogueManager()
@@ -153,6 +153,7 @@ void CDialogueManager::SetDialogue(const char* szName)
 			break;
 		}
 	}
+	m_vScripts[m_nScriptIndex]->SetCurrentSentence(0);
 }
 
 void CDialogueManager::NextSentence()

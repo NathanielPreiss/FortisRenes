@@ -12,9 +12,9 @@ CHeavyInfantry::CHeavyInfantry(void) : CEnemy(WEP_PISTOL)
 	SetEnemyID(ENEMY_HEAVY);
 	SetMaxHealth(200);
 	SetHealth(GetMaxHealth());
-	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource\\Graphics\\HeavyInfantry_editor.png"));
-//	SetAnimation(CAnimationManager::GetInstance()->LoadAnimation("Resource\\Data\\Animations\\JeG_HeavyInfantry.bin"));
-//	GetAnimation()->currAnimation->Play();
+//	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource\\Graphics\\HeavyInfantry_editor.png"));
+	SetAnimation(CAnimationManager::GetInstance()->LoadAnimation("Resource\\Data\\Animations\\JeG_HeavyInfantry.bin"));
+	GetAnimation()->currAnimation->Play();
 	SetMoneyReward(25);
 	SetRepReward(10);
 	SetWidth(32);
@@ -155,7 +155,6 @@ void CHeavyInfantry::Shoot(void)
 		if( GetAnimation() != NULL )
 		{
 			SetCurrAnimation("FireRight");
-			GetAnimation()->currAnimation->Play();
 		}
 	}
 	else if( GetFacing().fX == -1.0f )
@@ -163,25 +162,22 @@ void CHeavyInfantry::Shoot(void)
 		if( GetAnimation() != NULL )
 		{
 			SetCurrAnimation("FireLeft");
-			GetAnimation()->currAnimation->Play();
 		}
 	}
-//	else if( GetFacing().fY == 1.0f )
-//	{
-//		if( GetAnimation() != NULL )
-//		{
-//			SetCurrAnimation("LI Shoot");
-//			GetAnimation()->currAnimation->Play();
-//		}
-//	}
-//	else if( GetFacing().fY == -1.0f )
-//	{
-//		if( GetAnimation() != NULL )
-//		{
-//			SetCurrAnimation("LI Up Shoot");
-//			GetAnimation()->currAnimation->Play();
-//		}
-//	}
+	else if( GetFacing().fY == 1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("FireDown");
+		}
+	}
+	else if( GetFacing().fY == -1.0f )
+	{
+		if( GetAnimation() != NULL )
+		{
+			SetCurrAnimation("FireUp");
+		}
+	}
 }
 
 void CHeavyInfantry::Walk(void)
@@ -191,7 +187,6 @@ void CHeavyInfantry::Walk(void)
 		if( GetAnimation() != NULL )
 		{
 			SetCurrAnimation("WalkRight");
-			GetAnimation()->currAnimation->Play();
 		}
 	}
 	else if( GetFacing().fX == -1.0f )
@@ -199,7 +194,6 @@ void CHeavyInfantry::Walk(void)
 		if( GetAnimation() != NULL )
 		{
 			SetCurrAnimation("WalkLeft");
-			GetAnimation()->currAnimation->Play();
 		}
 	}
 	else if( GetFacing().fY == 1.0f )
@@ -207,7 +201,6 @@ void CHeavyInfantry::Walk(void)
 		if( GetAnimation() != NULL )
 		{
 			SetCurrAnimation("WalkDown");
-			GetAnimation()->currAnimation->Play();
 		}
 	}
 	else if( GetFacing().fY == -1.0f )
@@ -215,7 +208,6 @@ void CHeavyInfantry::Walk(void)
 		if( GetAnimation() != NULL )
 		{
 			SetCurrAnimation("WalkUp");
-			GetAnimation()->currAnimation->Play();
 		}
 	}
 }
