@@ -47,7 +47,8 @@ void CTankState::Enter()
 	pPlayer->SetImageID(m_nBaseImageID);
 	pPlayer->SetWidth(64);
 	pPlayer->SetHeight(64);
-	pPlayer->SetCurrentWeapon(WEP_RYNOV);
+	pPlayer->SetCurrentWeapon(WEP_BAZOOKA);
+	pPlayer->SetHealth(500);
 
 	m_fRot = CPlayer::GetInstance()->GetTempTank()->GetRotation();
 	m_vDirection = CPlayer::GetInstance()->GetTempTank()->GetDirection();
@@ -125,6 +126,14 @@ void CTankState::Update(float fElapsedTime)
 	if( pPlayer->GetPosY() - pPlayer->GetHeight()*0.5f < 0.0f )
 	{
 		pPlayer->SetPosY(0.0f + pPlayer->GetHeight() * 0.5f);
+	}
+
+	if(pPlayer->GetHealth() < 0)
+	{
+		pPlayer->SetHealth(100);
+		pPlayer->SetCurrentWeapon(WEP_PISTOL);
+
+		ChangeState(CPlayerInfantryState::GetInstance());
 	}
 }
 

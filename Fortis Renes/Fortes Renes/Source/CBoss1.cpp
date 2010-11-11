@@ -13,6 +13,7 @@
 CBoss1::CBoss1(void) : CEnemy(WEP_RIFLE)
 {
 	SetType(OBJECT_ENEMY);
+	SetEnemyID(ENEMY_BOSS);
 	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/SaT_BossOne.png", D3DCOLOR_XRGB(255,255,255)));
 	SetMoneyReward(100);
 	SetRepReward(50);
@@ -68,9 +69,9 @@ CBoss1::CBoss1(void) : CEnemy(WEP_RIFLE)
 CBoss1::~CBoss1(void)
 {
 	CSGD_TextureManager::GetInstance()->UnloadTexture(GetImageID());
-	//delete bomb;
-	//delete bomb2;
-	//delete bomb3;
+	delete bomb;
+	delete bomb2;
+	delete bomb3;
 }
 
 void CBoss1::Update(float fElapsedTime)
@@ -104,6 +105,8 @@ void CBoss1::Update(float fElapsedTime)
 		else
 			SetAttack(false);
 
+		GetState()->CalculateAI(fElapsedTime, this);
+
 		if(Attack())
 		{
 			ChangeState(CAttackState::GetInstance());
@@ -112,8 +115,6 @@ void CBoss1::Update(float fElapsedTime)
 		{
 			ChangeState(CIdleState::GetInstance());
 		}
-
-		GetState()->CalculateAI(fElapsedTime, this);
 
 		if(GetVelX() > 100.0f)
 			SetVelX(100.0f);

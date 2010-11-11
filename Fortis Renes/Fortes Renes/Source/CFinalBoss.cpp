@@ -7,7 +7,7 @@
 #include "CEventSystem.h"
 #include "CMessageSystem.h"
 
-CFinalBoss::CFinalBoss(void) : CEnemy(WEP_RYNOV)
+CFinalBoss::CFinalBoss(void) : CEnemy(WEP_RIFLE)
 {
 	SetType(OBJECT_ENEMY);
 	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/NaP_Gundam.png"));
@@ -17,8 +17,8 @@ CFinalBoss::CFinalBoss(void) : CEnemy(WEP_RYNOV)
 	SetHeight(32);
 	SetVelX(0.0f);
 	SetVelY(0.0f);
-	SetHealth(100);
-	SetArmor(0);
+	SetHealth(2000);
+	SetArmor(50);
 	m_vDirection.fX = 0.0f;
 	m_vDirection.fY = 1.0f;
 	SetAnimation(0);
@@ -82,8 +82,8 @@ void CFinalBoss::Update(float fElapsedTime)
 		if(GetVelY() < -100.0f)
 			SetVelY(-100.0f);
 
-		SetPosX(GetPosX() + GetVelX() * fElapsedTime);
-		SetPosY(GetPosY() + GetVelY() * fElapsedTime);
+		SetPosX(GetPosX() - GetVelX() * fElapsedTime);
+		SetPosY(GetPosY() - GetVelY() * fElapsedTime);
 
 		if(m_nPhase < 2)
 			SetHealth(100);
