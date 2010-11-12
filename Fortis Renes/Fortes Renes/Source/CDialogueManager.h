@@ -18,12 +18,16 @@ class CSentence
 private:
 	string m_szSentence;
 	string m_szTrigger;
+	bool m_bSendEvent;
 
 public:
 	CSentence(string szSentence, string szTrigger);
 
 	string& GetSentence(void) { return m_szSentence; }
 	string& GetTrigger(void) { return m_szTrigger; }
+	bool GetEventBool(void) { return m_bSendEvent; }
+
+	void SetEventBool(bool bSendEvent) { m_bSendEvent = bSendEvent; }
 };
 
 //////////////////////////////////////////////////////////////////////

@@ -42,8 +42,11 @@ void CPlayerInfantryState::Update(float fElapsedTime)
 #pragma region Attack Controls
 	if(CSGD_DirectInput::GetInstance()->MouseButtonDown(0))
 	{
-		m_pPlayer->Shoot();
-		m_pPlayer->GetCurrWeapon()->FireWeapon(m_pPlayer);
+		if( m_pPlayer->GetNumWeapons() - 1 >= 0 )
+		{
+			m_pPlayer->Shoot();
+			m_pPlayer->GetCurrWeapon()->FireWeapon(m_pPlayer);
+		}
 	}
 	if(CSGD_DirectInput::GetInstance()->KeyPressed(DIK_UP) || CSGD_DirectInput::GetInstance()->MouseWheelMovement() < 0)
 	{
@@ -67,24 +70,30 @@ void CPlayerInfantryState::Update(float fElapsedTime)
 
 #pragma region Movement Controls
 
+	bool bIsMoving = false;
+
 	if( CSGD_DirectInput::GetInstance()->KeyDown( DIK_W ) )
 	{
+		bIsMoving = true;
 		m_pPlayer->Walk();
 		m_pPlayer->SetPosY( m_pPlayer->GetPosY() - (m_pPlayer->GetSpeed() * fElapsedTime));
 	}
 	else if( CSGD_DirectInput::GetInstance()->KeyDown( DIK_S ) )
 	{
+		bIsMoving = true;
 		m_pPlayer->Walk();
 		m_pPlayer->SetPosY( m_pPlayer->GetPosY() + (m_pPlayer->GetSpeed() * fElapsedTime));
 	}
 
 	if( CSGD_DirectInput::GetInstance()->KeyDown( DIK_A ) )
 	{
+		bIsMoving = true;
 		m_pPlayer->Walk();
 		m_pPlayer->SetPosX( m_pPlayer->GetPosX() - (m_pPlayer->GetSpeed() * fElapsedTime));
 	}
 	else if( CSGD_DirectInput::GetInstance()->KeyDown( DIK_D ) )
 	{
+		bIsMoving = true;
 		m_pPlayer->Walk();
 		m_pPlayer->SetPosX( m_pPlayer->GetPosX() + (m_pPlayer->GetSpeed() * fElapsedTime));
 	}
@@ -97,7 +106,9 @@ void CPlayerInfantryState::Update(float fElapsedTime)
 			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
 		}
 	}
-	m_pPlayer->Idle();
+
+	if( bIsMoving == false )
+		m_pPlayer->Idle();
 
 #pragma endregion
 
