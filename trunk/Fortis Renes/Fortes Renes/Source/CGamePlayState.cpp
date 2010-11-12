@@ -62,7 +62,7 @@ void CGamePlayState::Enter(void)
 
 	//LoadLevel("Resource/Levels/ArtilleryLevel.bin");
 	//LoadLevel("Resource/Levels/JeG_Level1.bin");
-	//LoadLevel("Resource/Levels/JeG_Level2.bin");
+	//LoadLeveld("Resource/Levels/JeG_Level2.bin");
 	//LoadLevel("Resource/Levels/JeG_Level4BossFight.bin");
 	//LoadLevel("Resource/Levels/testtesttest.bin");
 	LoadLevel("Resource/Levels/JeG_TutorialLevel.bin");
@@ -563,19 +563,34 @@ void CGamePlayState::HandleEvent( CEvent* pEvent )
 
 	if( pEvent->GetEventID() == "level.one" )
 	{
-		if( m_bLevel1 == false )
+		if( CPlayer::GetInstance()->GetNumWeapons() < 2 )
+		{
+		}
+		else if( m_bLevel1 == false )
 			m_bLevel1 = true;
 	}
 
 	if( pEvent->GetEventID() == "level.two" )
 	{
-		if( m_bLevel2 == false )
+		if( CPlayer::GetInstance()->GetProgress() < 2 )
+		{
+		}
+		else if( CPlayer::GetInstance()->GetNumWeapons() < 4 )
+		{
+		}
+		else if( m_bLevel2 == false )
 			m_bLevel2 = true;
 	}
 
 	if( pEvent->GetEventID() == "level.three" )
 	{
-		if( m_bLevel3 == false )
+		if( CPlayer::GetInstance()->GetProgress() < 2 )
+		{
+		}
+		else if( CPlayer::GetInstance()->GetNumWeapons() < 5 )
+		{
+		}
+		else if( m_bLevel3 == false )
 			m_bLevel3 = true;
 	}
 

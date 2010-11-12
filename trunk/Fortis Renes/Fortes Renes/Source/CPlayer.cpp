@@ -346,8 +346,8 @@ void CPlayer::Update(float fElapsedTime)
 
 	// Update facing normal
 	tVector2D toCursor;
-	toCursor.fX = CCursor::GetInstance()->GetPosX() - GetPosX();
-	toCursor.fY = CCursor::GetInstance()->GetPosY() - GetPosY();
+	toCursor.fX = (CCursor::GetInstance()->GetPosX()+CCamera::GetInstance()->GetPosX()) - GetPosX();
+	toCursor.fY = (CCursor::GetInstance()->GetPosY()+CCamera::GetInstance()->GetPosY()) - GetPosY();
 
 	if( abs(toCursor.fX) > abs(toCursor.fY) )
 	{

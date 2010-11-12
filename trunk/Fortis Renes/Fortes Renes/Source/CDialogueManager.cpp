@@ -98,6 +98,10 @@ void CDialogueManager::LoadDialogue(const char *szFilename)
 				delete[] buffer;
 
 				CSentence* newSentence = new CSentence(szSentence,szTrigger);
+				if( strLen < 1 )
+					newSentence->SetEventBool(false);
+				else
+					newSentence->SetEventBool(true);
 
 				newScript->AddSentence(newSentence);
 			}
@@ -164,5 +168,9 @@ void CDialogueManager::NextSentence()
 
 void CScript::CallEvent()
 {
-	CEventSystem::GetInstance()->SendEvent(m_vScript[m_nCurrentSentence]->GetTrigger());
+	if( m_vScript[m_nCurrentSentence]->GetEventBool() == true )
+	{
+		CEventSystem::GetInstance()->SendEvent(m_vScript[m_nCurrentSentence]->GetTrigger());
+		m_vScript[m_nCurrentSentence]->SetEventBool(false);
+	}
 }
