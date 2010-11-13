@@ -11,6 +11,7 @@
 #include "Tinyxml/tinyxml.h"
 #include "CPlayerInfantryState.h"
 #include "CEventSystem.h"
+#include "CBitmapFont.h"
 
 CJeepState::CJeepState(void)
 {
@@ -40,6 +41,7 @@ void CJeepState::Enter()
 	pPlayer->SetImageID(m_nImageID);
 	pPlayer->SetWidth(32);
 	pPlayer->SetHeight(64);
+	pPlayer->SetHealth(400);
 
 	m_vDirection = pPlayer->GetTempJeep()->GetDirection();
 
@@ -97,11 +99,46 @@ void CJeepState::Update(float fElapsedTime)
 	{
 		pPlayer->SetPosY(0.0f + pPlayer->GetHeight() * 0.5f);
 	}
+
+	if(pPlayer->GetHealth() < 150)
+	{
+		pPlayer->SetHealth(100);
+
+		ChangeState(CPlayerInfantryState::GetInstance());
+	}
 }
 
 void CJeepState::Render(float fCamPosX, float fCamPosY)
 {
 	CSGD_TextureManager::GetInstance()->Draw(m_nImageID, (int)((pPlayer->GetPosX() - pPlayer->GetWidth()*0.5f) - fCamPosX), (int)((pPlayer->GetPosY() - pPlayer->GetHeight() * 0.5f) - fCamPosY), 1.0f, 1.0f, 0, pPlayer->GetWidth()*.5f, pPlayer->GetHeight()*.5f, m_fRot);
+
+	CPlayerInfantryState* IS = CPlayerInfantryState::GetInstance();
+
+	CSGD_TextureManager::GetInstance()->Draw(IS->GetHud(), 42, 370);
+	CSGD_TextureManager::GetInstance()->Draw(IS->GetHud(), 423, 370);
+	char buffer[32];
+	sprintf_s(buffer, _countof(buffer), "Health: %d : %d", pPlayer->GetMaxHealth(), pPlayer->GetHealth()-150);
+	CBitmapFont::GetInstance()->Draw(buffer, 64, 410, 0.5f);
+	
+	pPlayer->GetInventory()->Render(pPlayer->GetCurrItem());
+
+	if( pPlayer->GetNumWeapons() > 0 )
+	{
+		pPlayer->PrevWeapon();
+		CSGD_TextureManager::GetInstance()->Draw(pPlayer->GetCurrWeapon()->GetImageID(), 426, 400, 0.5f, 0.5f);
+		pPlayer->NextWeapon();
+		CSGD_TextureManager::GetInstance()->Draw(pPlayer->GetCurrWeapon()->GetImageID(), 469, 375, 1.0f, 1.0f);
+		pPlayer->NextWeapon();
+		CSGD_TextureManager::GetInstance()->Draw(pPlayer->GetCurrWeapon()->GetImageID(), 555, 400, 0.5f, 0.5f);
+		pPlayer->PrevWeapon();
+
+		sprintf_s(buffer, _countof(buffer), "%d", pPlayer->GetCurrWeapon()->GetCurrMagazine());
+		CBitmapFont::GetInstance()->Draw(buffer, 476, 410, 0.5f);
+	
+
+		sprintf_s(buffer, _countof(buffer), "%d", pPlayer->GetCurrWeapon()->GetCurrAmmo());
+		CBitmapFont::GetInstance()->DrawCenter(buffer, 550, 410, 0.5f);
+	}
 }
 
 void CJeepState::ChangeState( IPlayerState* newState )

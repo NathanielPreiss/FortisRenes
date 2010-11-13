@@ -14,6 +14,7 @@
 #include "CMessageSystem.h"
 #include "CPlayerInfantryState.h"
 #include "CGame.h"
+#include "CBitmapFont.h"
 
 CTankState::CTankState(void)
 {
@@ -48,7 +49,7 @@ void CTankState::Enter()
 	pPlayer->SetWidth(64);
 	pPlayer->SetHeight(64);
 	pPlayer->SetCurrentWeapon(WEP_BAZOOKA);
-	pPlayer->SetHealth(500);
+	pPlayer->SetHealth(650);
 
 	m_fRot = CPlayer::GetInstance()->GetTempTank()->GetRotation();
 	m_vDirection = CPlayer::GetInstance()->GetTempTank()->GetDirection();
@@ -128,7 +129,7 @@ void CTankState::Update(float fElapsedTime)
 		pPlayer->SetPosY(0.0f + pPlayer->GetHeight() * 0.5f);
 	}
 
-	if(pPlayer->GetHealth() < 0)
+	if(pPlayer->GetHealth() < 150)
 	{
 		pPlayer->SetHealth(100);
 		pPlayer->SetCurrentWeapon(WEP_PISTOL);
@@ -146,6 +147,35 @@ void CTankState::Render(float fCamPosX, float fCamPosY)
 	CSGD_TextureManager::GetInstance()->Draw(m_nTurretImageID, (int)((pPlayer->GetPosX() - pPlayer->GetWidth()/3) - fCamPosX), 
 		(int)((pPlayer->GetPosY() - pPlayer->GetHeight() /2) - fCamPosY), 1.0f, 1.0f, 0, (float)pPlayer->GetWidth()/3, (float)pPlayer->GetHeight()/2, 
 		m_fTurretRot);
+
+	CPlayerInfantryState* IS = CPlayerInfantryState::GetInstance();
+
+	CSGD_TextureManager::GetInstance()->Draw(IS->GetHud(), 42, 370);
+	CSGD_TextureManager::GetInstance()->Draw(IS->GetHud(), 423, 370);
+	char buffer[32];
+	sprintf_s(buffer, _countof(buffer), "Health: %d : %d", pPlayer->GetMaxHealth(), pPlayer->GetHealth()-150);
+	CBitmapFont::GetInstance()->Draw(buffer, 64, 410, 0.5f);
+	
+	pPlayer->GetInventory()->Render(pPlayer->GetCurrItem());
+
+	if( pPlayer->GetNumWeapons() > 0 )
+	{
+		pPlayer->PrevWeapon();
+		CSGD_TextureManager::GetInstance()->Draw(pPlayer->GetCurrWeapon()->GetImageID(), 426, 400, 0.5f, 0.5f);
+		pPlayer->NextWeapon();
+		CSGD_TextureManager::GetInstance()->Draw(pPlayer->GetCurrWeapon()->GetImageID(), 469, 375, 1.0f, 1.0f);
+		pPlayer->NextWeapon();
+		CSGD_TextureManager::GetInstance()->Draw(pPlayer->GetCurrWeapon()->GetImageID(), 555, 400, 0.5f, 0.5f);
+		pPlayer->PrevWeapon();
+
+		sprintf_s(buffer, _countof(buffer), "%d", pPlayer->GetCurrWeapon()->GetCurrMagazine());
+		CBitmapFont::GetInstance()->Draw(buffer, 476, 410, 0.5f);
+	
+
+		sprintf_s(buffer, _countof(buffer), "%d", pPlayer->GetCurrWeapon()->GetCurrAmmo());
+		CBitmapFont::GetInstance()->DrawCenter(buffer, 550, 410, 0.5f);
+	}
+
 }
 
 void CTankState::HandleEvent( CEvent* pEvent )
