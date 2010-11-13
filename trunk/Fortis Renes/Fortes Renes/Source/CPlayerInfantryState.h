@@ -30,6 +30,7 @@ private:
 public:
 	static CPlayerInfantryState* GetInstance(void);	
 	CPlayer* GetPlayer() { return m_pPlayer; }
+	int GetHud() { return m_nHudID; }
 	
 	void Enter();
 	void Update(float fElapsedTime);

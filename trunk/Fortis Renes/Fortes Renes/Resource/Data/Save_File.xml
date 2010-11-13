@@ -3,6 +3,6 @@
     <m_nMoney value="1000" />
     <m_nRep value="0" />
     <m_nMaxHealth value="100" />
-    <m_nHealthPacks value="0" />
-    <m_nAdrenaline value="0" />
+    <m_nHealthPacks value="2" />
+    <m_nAdrenaline value="1" />
 </player_save>

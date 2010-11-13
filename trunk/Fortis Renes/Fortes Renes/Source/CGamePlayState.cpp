@@ -64,8 +64,8 @@ void CGamePlayState::Enter(void)
 	//LoadLevel("Resource/Levels/JeG_Level1.bin");
 	//LoadLeveld("Resource/Levels/JeG_Level2.bin");
 	//LoadLevel("Resource/Levels/JeG_Level4BossFight.bin");
-	//LoadLevel("Resource/Levels/testtesttest.bin");
-	LoadLevel("Resource/Levels/JeG_TutorialLevel.bin");
+	LoadLevel("Resource/Levels/testtesttest.bin");
+	//LoadLevel("Resource/Levels/JeG_TutorialLevel.bin");
 	//LoadLevel("Resource/Levels/JeG_RebelBase.bin");
 
 	m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/GamePlayStateBG.wav");
