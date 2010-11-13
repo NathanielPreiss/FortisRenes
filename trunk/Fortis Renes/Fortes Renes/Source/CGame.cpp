@@ -25,6 +25,7 @@
 #include "CMediumInfantry.h"
 #include "CHeavyInfantry.h"
 #include "CEnemyTank.h"
+#include "CPlayerInfantryState.h"
 #include "CAlly.h"
 #include "CTank.h"
 #include "CJeep.h"
@@ -700,17 +701,26 @@ void CGame::HandleEvent(CEvent* pEvent)
 {
 	if( pEvent->GetEventID() == "enter.shop" )
 	{
-		AddState(CShopState::GetInstance());
-		CPlayer::GetInstance()->SetPosY(CPlayer::GetInstance()->GetPosY()+32);
+		if(CPlayer::GetInstance()->GetState() == CPlayerInfantryState::GetInstance())
+		{
+			AddState(CShopState::GetInstance());
+			CPlayer::GetInstance()->SetPosY(CPlayer::GetInstance()->GetPosY()+32);
+		}
 	}
 	if( pEvent->GetEventID() == "enter.research" )
 	{
-		AddState(CResearchCenterState::GetInstance());
-		CPlayer::GetInstance()->SetPosY(CPlayer::GetInstance()->GetPosY()+32);
+		if(CPlayer::GetInstance()->GetState() == CPlayerInfantryState::GetInstance())
+		{
+			AddState(CResearchCenterState::GetInstance());
+			CPlayer::GetInstance()->SetPosY(CPlayer::GetInstance()->GetPosY()+32);
+		}
 	}
 	if( pEvent->GetEventID() == "enter.progress" )
 	{
-		AddState(CProgressCenterState::GetInstance());
-		CPlayer::GetInstance()->SetPosY(CPlayer::GetInstance()->GetPosY()+32);
+		if(CPlayer::GetInstance()->GetState() == CPlayerInfantryState::GetInstance())
+		{
+			AddState(CProgressCenterState::GetInstance());
+			CPlayer::GetInstance()->SetPosY(CPlayer::GetInstance()->GetPosY()+32);
+		}
 	}
 }
