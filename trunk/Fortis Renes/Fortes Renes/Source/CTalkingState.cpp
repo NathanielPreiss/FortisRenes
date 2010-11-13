@@ -34,11 +34,12 @@ void CTalkingState::Enter(void)
 }
 bool CTalkingState::Input(void)
 {
-	if(CSGD_DirectInput::GetInstance()->CheckBufferedKeysEx())
+	if(CSGD_DirectInput::GetInstance()->KeyPressed(DIK_RETURN))
 	{
 		CDialogueManager::GetInstance()->NextSentence();
-		CSGD_DirectInput::GetInstance()->ClearInput();
 	}
+	
+	//CSGD_DirectInput::GetInstance()->ClearInput();
 
 	return true;
 }
@@ -54,4 +55,5 @@ void CTalkingState::Render(void)
 void CTalkingState::Exit(void)
 {
 	CSGD_TextureManager::GetInstance()->UnloadTexture(m_nBackgroundID);
+	//CSGD_DirectInput::GetInstance()->ClearInput();
 }

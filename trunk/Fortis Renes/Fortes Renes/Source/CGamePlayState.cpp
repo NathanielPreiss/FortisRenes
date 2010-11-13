@@ -156,6 +156,7 @@ void CGamePlayState::Update(float fElapsedTime)
 			CPlayer::GetInstance()->ChangeState(CPlayerInfantryState::GetInstance());
 			LoadLevel("Resource/Levels/JeG_RebelBase.bin");
 
+			CSGD_DirectInput::GetInstance()->ClearInput();
 			m_bLevelEnd = false;
 		}
 	}
@@ -563,8 +564,17 @@ void CGamePlayState::HandleEvent( CEvent* pEvent )
 
 	if( pEvent->GetEventID() == "level.one" )
 	{
-		if( CPlayer::GetInstance()->GetNumWeapons() < 2 )
+		if( CPlayer::GetInstance()->GetProgress() != 1 )
 		{
+			CDialogueManager::GetInstance()->SetDialogue("CannotGo");
+			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			CPlayer::GetInstance()->SetPosX(CPlayer::GetInstance()->GetPosX()+40);
+		}
+		else if( CPlayer::GetInstance()->GetNumWeapons() < 2 )
+		{
+			CDialogueManager::GetInstance()->SetDialogue("NotReady");
+			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			CPlayer::GetInstance()->SetPosX(CPlayer::GetInstance()->GetPosX()+40);
 		}
 		else if( m_bLevel1 == false )
 			m_bLevel1 = true;
@@ -572,11 +582,17 @@ void CGamePlayState::HandleEvent( CEvent* pEvent )
 
 	if( pEvent->GetEventID() == "level.two" )
 	{
-		if( CPlayer::GetInstance()->GetProgress() < 2 )
+		if( CPlayer::GetInstance()->GetProgress() != 2 )
 		{
+			CDialogueManager::GetInstance()->SetDialogue("CannotGo");
+			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			CPlayer::GetInstance()->SetPosY(CPlayer::GetInstance()->GetPosY()+40);
 		}
 		else if( CPlayer::GetInstance()->GetNumWeapons() < 4 )
 		{
+			CDialogueManager::GetInstance()->SetDialogue("NotReady");
+			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			CPlayer::GetInstance()->SetPosY(CPlayer::GetInstance()->GetPosY()+40);
 		}
 		else if( m_bLevel2 == false )
 			m_bLevel2 = true;
@@ -584,11 +600,17 @@ void CGamePlayState::HandleEvent( CEvent* pEvent )
 
 	if( pEvent->GetEventID() == "level.three" )
 	{
-		if( CPlayer::GetInstance()->GetProgress() < 2 )
+		if( CPlayer::GetInstance()->GetProgress() != 3 )
 		{
+			CDialogueManager::GetInstance()->SetDialogue("CannotGo");
+			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			CPlayer::GetInstance()->SetPosX(CPlayer::GetInstance()->GetPosX()-40);
 		}
 		else if( CPlayer::GetInstance()->GetNumWeapons() < 5 )
 		{
+			CDialogueManager::GetInstance()->SetDialogue("NotReady");
+			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			CPlayer::GetInstance()->SetPosX(CPlayer::GetInstance()->GetPosX()-40);
 		}
 		else if( m_bLevel3 == false )
 			m_bLevel3 = true;

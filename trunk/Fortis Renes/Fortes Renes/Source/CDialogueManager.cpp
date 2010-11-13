@@ -144,6 +144,8 @@ void CDialogueManager::UseProgressDialogue(void)
 	case 4:
 		SetDialogue("Mission4");
 		break;
+	case 5:
+		SetDialogue("SiegeMission");
 	};
 }
 
