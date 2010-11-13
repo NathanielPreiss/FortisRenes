@@ -110,6 +110,7 @@ void CPlayer::NewPlayer(void)
 	CEventSystem::GetInstance()->RegisterClient("player_use_healthpack", this);
 	CEventSystem::GetInstance()->RegisterClient("player_use_adrenaline", this);
 	CEventSystem::GetInstance()->RegisterClient("next.weapon",this);
+	CEventSystem::GetInstance()->RegisterClient("progress.up",this);
 	m_nSpeed = 250;
 	SetArmor(0);
 	SetPosX(320.0f);
@@ -181,6 +182,7 @@ void CPlayer::ClosePlayer(void)
 	CEventSystem::GetInstance()->UnregisterClient("player_use_healthpack", this);
 	CEventSystem::GetInstance()->UnregisterClient("player_use_adrenaline", this);
 	CEventSystem::GetInstance()->UnregisterClient("next.weapon",this);
+	CEventSystem::GetInstance()->UnregisterClient("progress.up",this);
 	CSGD_TextureManager::GetInstance()->UnloadTexture(GetImageID());
 
 	vector<CWeapon*>::iterator iter = m_pWeapon.begin();
@@ -435,6 +437,11 @@ void CPlayer::HandleEvent(CEvent* pEvent)
 	{
 		if( m_nNumWeapons < 6 )
 			m_nNumWeapons++;
+	}
+
+	if( pEvent->GetEventID() == "progress.up" )
+	{
+		this->m_chProgress++;
 	}
 }
 
