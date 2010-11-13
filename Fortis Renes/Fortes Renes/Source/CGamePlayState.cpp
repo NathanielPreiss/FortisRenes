@@ -229,6 +229,11 @@ void CGamePlayState::Update(float fElapsedTime)
 	{
 		CEventSystem::GetInstance()->ClearEvents();
 		UnloadLevel();
+
+		// Replenish Ammo
+		for(int i = 0; i < CPlayer::GetInstance()->GetNumWeapons(); i++)
+			CPlayer::GetInstance()->GetWeapon(i)->SetAmmo(CPlayer::GetInstance()->GetWeapon(i)->GetMaxAmmo());
+
 		LoadLevelHelper();
 	}
 

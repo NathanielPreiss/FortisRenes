@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fortes Renes", "Fortes Renes\Fortes Renes.vcproj", "{16857EFD-0959-4062-8C7E-966202886BE8}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "FortisRenesInstall", "FortisRenesInstall\FortisRenesInstall.vdproj", "{C4252173-C295-4928-8887-28EA4FCBF17C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,8 @@ Global
 		{16857EFD-0959-4062-8C7E-966202886BE8}.Debug|Win32.Build.0 = Debug|Win32
 		{16857EFD-0959-4062-8C7E-966202886BE8}.Release|Win32.ActiveCfg = Release|Win32
 		{16857EFD-0959-4062-8C7E-966202886BE8}.Release|Win32.Build.0 = Release|Win32
+		{C4252173-C295-4928-8887-28EA4FCBF17C}.Debug|Win32.ActiveCfg = Debug
+		{C4252173-C295-4928-8887-28EA4FCBF17C}.Release|Win32.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

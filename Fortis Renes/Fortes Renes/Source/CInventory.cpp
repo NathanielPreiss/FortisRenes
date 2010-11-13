@@ -17,7 +17,7 @@
 CInventory::CInventory(void)
 {
 	m_nMedkitID = CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/Medkit.png");
-	m_nAdrenalineID = CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/Medkit.png");
+	m_nAdrenalineID = CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/Adrenaline.png");
 	for(int i = 0; i < CON_NUMBER; i++)
 		m_Inventory[i] = 0;
 }
