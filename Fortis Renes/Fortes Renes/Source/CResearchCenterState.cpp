@@ -106,6 +106,18 @@ void CResearchCenterState::Render(void)
 	sprintf_s(buffer, "Fund: %d", 100*(CPlayer::GetInstance()->GetResearchConsumableLevel()+1));
 	CBitmapFont::GetInstance()->Draw((CPlayer::GetInstance()->GetResearchConsumableLevel()<3)?buffer:"MAX",470,110,0.5f);
 
+	CBitmapFont::GetInstance()->Draw("+2 Damage",0, 200, 1.0f);
+	CBitmapFont::GetInstance()->Draw("+3 Damage",0, 300, 1.0f);
+	CBitmapFont::GetInstance()->Draw("+5 Damage",0, 400, 1.0f);
+	
+	CBitmapFont::GetInstance()->Draw("+2 Armor",208, 200, 1.0f);
+	CBitmapFont::GetInstance()->Draw("+3 Armor",208, 300, 1.0f);
+	CBitmapFont::GetInstance()->Draw("+5 Armor",208, 400, 1.0f);
+	
+	CBitmapFont::GetInstance()->Draw("+20 Health",433, 200, 1.0f);
+	CBitmapFont::GetInstance()->Draw("+30 Health",433, 300, 1.0f);
+	CBitmapFont::GetInstance()->Draw("+50 Health",433, 400, 1.0f);
+
 	for(int i = 0; i < 3 - CPlayer::GetInstance()->GetResearchArmorLevel(); i++)
 		CSGD_TextureManager::GetInstance()->Draw(m_nAlphaID, -17, 393 - (i*110));
 	for(int i = 0; i < 3 - CPlayer::GetInstance()->GetResearchWeaponLevel(); i++)
