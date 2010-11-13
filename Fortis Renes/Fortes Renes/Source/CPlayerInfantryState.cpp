@@ -104,6 +104,7 @@ void CPlayerInfantryState::Update(float fElapsedTime)
 			m_pPlayer->Idle();
 			CDialogueManager::GetInstance()->UseProgressDialogue();
 			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			m_pPlayer->SetTalkBool(false);
 		}
 	}
 

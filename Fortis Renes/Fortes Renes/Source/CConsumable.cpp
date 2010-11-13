@@ -25,7 +25,7 @@ CConsumable::CConsumable(int nItemID)
 	switch(nItemID)
 	{
 	case CON_ADRENALINE:
-		SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/pill.jpg"));
+		SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/pill.png"));
 		SetWidth(32);
 		SetHeight(32);
 		break;
@@ -35,7 +35,7 @@ CConsumable::CConsumable(int nItemID)
 		SetHeight(32);
 		break;
 	case CON_AMMO:
-		SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/ammo.jpg"));
+		SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/ammo.png"));
 		SetWidth(32);
 		SetHeight(32);
 		break;

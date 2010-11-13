@@ -124,7 +124,7 @@ void CBoss2::Update(float fElapsedTime)
 			}
 		}
 		else
-			CGamePlayState::GetInstance()->GetEmitter().pop_back();
+//			CGamePlayState::GetInstance()->GetEmitter().pop_back();
 	
 		if(IntersectRect(&empty, &los, &pPlayer->GetRect()))
 		{

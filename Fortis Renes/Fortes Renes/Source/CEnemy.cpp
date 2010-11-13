@@ -9,6 +9,7 @@
 #include "CIdleState.h"
 #include "CBullet.h"
 #include "CObjectManager.h"
+#include "CAttackState.h"
 
 
 CEnemy::CEnemy(int nWeapon)
@@ -141,6 +142,8 @@ bool CEnemy::CheckCollision( CBase *pBase )
 			if( bullet->GetOwner()->GetType() != OBJECT_ENEMY )
 			{
 				CEventSystem::GetInstance()->SendEvent("Increment.Phase", this);
+				SetTarget(bullet->GetOwner());
+				ChangeState(CAttackState::GetInstance());
 				SetHealth(GetHealth()-(bullet->GetDamage()-GetArmor()));
 				CMessageSystem::GetInstance()->SendMsg( new CDestroyBullet(bullet));
 

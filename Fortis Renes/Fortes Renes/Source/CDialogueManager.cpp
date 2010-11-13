@@ -29,8 +29,9 @@ CScript::~CScript()
 
 void CScript::Render()
 {
-	if( m_nCurrentSentence == m_vScript.size() )
+	if( (unsigned int)m_nCurrentSentence > m_vScript.size() - 1 )
 	{
+		CSGD_DirectInput::GetInstance()->ClearInput();
 		CGame::GetInstance()->RemoveTopState();
 		return;
 	}
