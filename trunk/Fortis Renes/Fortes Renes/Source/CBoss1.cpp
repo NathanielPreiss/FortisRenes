@@ -30,10 +30,10 @@ CBoss1::CBoss1(void) : CEnemy(WEP_RIFLE)
 	m_fCounter = 0.5f;
 	m_fDestroyCounter = 7.0f;
 	m_bForCounter = false;
-	bomb = new CBase();
-	bomb2 = new CBase();
-	bomb3 = new CBase();
-
+	//bomb = new CBase();
+	//bomb2 = new CBase();
+	//bomb3 = new CBase();
+/*
 	bomb->SetPosX(550.0f);
 	bomb->SetPosY(270.0f);
 	bomb->SetWidth(32);
@@ -60,7 +60,7 @@ CBoss1::CBoss1(void) : CEnemy(WEP_RIFLE)
 	bomb3->SetArmor(0);
 	bomb3->SetType(OBJECT_BOMB);
 	bomb3->SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/Object Sprites/JeG_Bomb.png", D3DCOLOR_XRGB(0,255,0)));
-
+*/
 	los.left = (LONG)((GetPosX() + GetWidth()*0.5f) - 250.0f);
 	los.top = (LONG)((GetPosY() + GetHeight()*0.5f) - 250.0f);
 	los.right = (LONG)(los.left + 700.0f);
@@ -70,9 +70,9 @@ CBoss1::CBoss1(void) : CEnemy(WEP_RIFLE)
 CBoss1::~CBoss1(void)
 {
 	CSGD_TextureManager::GetInstance()->UnloadTexture(GetImageID());
-	delete bomb;
-	delete bomb2;
-	delete bomb3;
+	//delete bomb;
+	//delete bomb2;
+	//delete bomb3;
 }
 
 void CBoss1::Update(float fElapsedTime)
