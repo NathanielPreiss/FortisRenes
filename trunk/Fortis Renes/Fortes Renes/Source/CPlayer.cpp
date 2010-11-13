@@ -16,6 +16,7 @@
 #include "CBullet.h"
 #include "CObjectManager.h"
 #include "CCursor.h"
+#include "CTalkingState.h"
 
 CPlayer::CPlayer(void)
 {
@@ -117,7 +118,7 @@ void CPlayer::NewPlayer(void)
 	SetPosY(240.0f);
 	SetLayer(10);
 	SetWidth(16);
-	SetHeight(20);
+	SetHeight(32);
 	SetHealth(100);
 	SetLayer(10);
 	m_chResearchArmorLevel = 0;
@@ -218,7 +219,9 @@ bool CPlayer::CheckCollision(CBase* pBase )
 		toAlly.fX = pBase->GetPosX() - GetPosX();
 		toAlly.fY = pBase->GetPosY() - GetPosY();
 
-		if( Vector2DLength(toAlly) < 40 )
+		vector<IGameState*> vec = *(CGame::GetInstance()->GetGameStates());
+
+			if( Vector2DLength(toAlly) < 40 && vec[vec.size()-1] != CTalkingState::GetInstance() )
 			SetTalkBool(true);
 		else
 			SetTalkBool(false);
