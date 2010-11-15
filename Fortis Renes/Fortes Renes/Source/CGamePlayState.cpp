@@ -524,6 +524,7 @@ bool CGamePlayState::UnloadLevel(void)
 
 void CGamePlayState::HandleEvent( CEvent* pEvent )
 {
+	vector<IGameState*> vec = *(CGame::GetInstance()->GetGameStates());
 	if( m_bLevelBegun == false && pEvent->GetEventID() == "begin.level" )
 	{
 		CEventSystem::GetInstance()->SendEvent("call.ally");
@@ -556,14 +557,20 @@ void CGamePlayState::HandleEvent( CEvent* pEvent )
 	{
 		if( CPlayer::GetInstance()->GetProgress() != 1 )
 		{
-			CDialogueManager::GetInstance()->SetDialogue("CannotGo");
-			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			if( vec[vec.size()-1] != CTalkingState::GetInstance() )
+			{
+				CDialogueManager::GetInstance()->SetDialogue("CannotGo");
+				CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			}
 			CPlayer::GetInstance()->SetPosX(CPlayer::GetInstance()->GetPosX()+40);
 		}
 		else if( CPlayer::GetInstance()->GetNumWeapons() < 2 )
 		{
-			CDialogueManager::GetInstance()->SetDialogue("NotReady");
-			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			if( vec[vec.size()-1] != CTalkingState::GetInstance() )
+			{
+				CDialogueManager::GetInstance()->SetDialogue("NotReady");
+				CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			}
 			CPlayer::GetInstance()->SetPosX(CPlayer::GetInstance()->GetPosX()+40);
 		}
 		else if( m_bLevel1 == false )
@@ -574,14 +581,20 @@ void CGamePlayState::HandleEvent( CEvent* pEvent )
 	{
 		if( CPlayer::GetInstance()->GetProgress() != 2 )
 		{
-			CDialogueManager::GetInstance()->SetDialogue("CannotGo");
-			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			if( vec[vec.size()-1] != CTalkingState::GetInstance() )
+			{
+				CDialogueManager::GetInstance()->SetDialogue("CannotGo");
+				CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			}
 			CPlayer::GetInstance()->SetPosY(CPlayer::GetInstance()->GetPosY()+40);
 		}
 		else if( CPlayer::GetInstance()->GetNumWeapons() < 4 )
 		{
-			CDialogueManager::GetInstance()->SetDialogue("NotReady");
-			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			if( vec[vec.size()-1] != CTalkingState::GetInstance() )
+			{
+				CDialogueManager::GetInstance()->SetDialogue("NotReady");
+				CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			}
 			CPlayer::GetInstance()->SetPosY(CPlayer::GetInstance()->GetPosY()+40);
 		}
 		else if( m_bLevel2 == false )
@@ -592,14 +605,20 @@ void CGamePlayState::HandleEvent( CEvent* pEvent )
 	{
 		if( CPlayer::GetInstance()->GetProgress() != 3 )
 		{
-			CDialogueManager::GetInstance()->SetDialogue("CannotGo");
-			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			if( vec[vec.size()-1] != CTalkingState::GetInstance() )
+			{
+				CDialogueManager::GetInstance()->SetDialogue("CannotGo");
+				CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			}
 			CPlayer::GetInstance()->SetPosX(CPlayer::GetInstance()->GetPosX()-40);
 		}
 		else if( CPlayer::GetInstance()->GetNumWeapons() < 5 )
 		{
-			CDialogueManager::GetInstance()->SetDialogue("NotReady");
-			CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			if( vec[vec.size()-1] != CTalkingState::GetInstance() )
+			{
+				CDialogueManager::GetInstance()->SetDialogue("NotReady");
+				CGame::GetInstance()->AddState(CTalkingState::GetInstance());
+			}
 			CPlayer::GetInstance()->SetPosX(CPlayer::GetInstance()->GetPosX()-40);
 		}
 		else if( m_bLevel3 == false )

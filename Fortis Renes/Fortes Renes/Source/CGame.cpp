@@ -305,6 +305,7 @@ void CGame::MessageProc( CBaseMessage* pMsg )
 			pBullet->SetDamage( pCB->GetPlayer()->GetCurrWeapon()->GetDamage() );
 			pBullet->SetPosX( pCB->GetPlayer()->GetPosX() );
 			pBullet->SetPosY( pCB->GetPlayer()->GetPosY() );
+			pBullet->SetRange( pCB->GetPlayer()->GetCurrWeapon()->GetRange());
 			pBullet->SetRotation( fAngle );
 			pBullet->SetVelX( (vDirection.fX+temp) * (pCB->GetPlayer()->GetCurrWeapon()->GetBulletSpeed()));
 			pBullet->SetVelY( (vDirection.fY+temp) * (pCB->GetPlayer()->GetCurrWeapon()->GetBulletSpeed()));
@@ -380,7 +381,7 @@ void CGame::MessageProc( CBaseMessage* pMsg )
 
 				float fAngle = AngleBetweenVectors(enemy, vDirection);
 
-				if(pEnemy->GetTarget()->GetPosX() < pEnemy->GetPosX())
+				if(pEnemy->GetTarget()->GetPosX()+CCamera::GetInstance()->GetPosX() < pEnemy->GetPosX())
 					fAngle = -fAngle;
 
 				CBullet* pBullet;
@@ -403,6 +404,7 @@ void CGame::MessageProc( CBaseMessage* pMsg )
 					pBullet->SetDamage( pEnemy->GetWeapon()->GetDamage() );
 					pBullet->SetVelX( vDirection.fX * (pEnemy->GetWeapon()->GetBulletSpeed()));
 					pBullet->SetVelY( vDirection.fY * (pEnemy->GetWeapon()->GetBulletSpeed()));
+					pBullet->SetRange( pEnemy->GetWeapon()->GetRange() );
 					pBullet->SetWeaponID(pEnemy->GetWeapon()->GetWeaponID());
 				}
 
@@ -432,7 +434,7 @@ void CGame::MessageProc( CBaseMessage* pMsg )
 
 					float fAngle = AngleBetweenVectors(enemy, vDirection);
 
-					if(pShooter->GetTarget()->GetPosX() < pShooter->GetPosX())
+					if(pShooter->GetTarget()->GetPosX()+CCamera::GetInstance()->GetPosX() < pShooter->GetPosX())
 						fAngle = -fAngle;
 
 
@@ -444,6 +446,7 @@ void CGame::MessageProc( CBaseMessage* pMsg )
 					pBullet->SetDamage( pShooter->GetWeapon()->GetDamage() );
 					pBullet->SetVelX( vDirection.fX * (pShooter->GetWeapon()->GetBulletSpeed()));
 					pBullet->SetVelY( vDirection.fY * (pShooter->GetWeapon()->GetBulletSpeed()));
+					pBullet->SetRange( pShooter->GetWeapon()->GetRange() );
 					pBullet->SetWeaponID(pShooter->GetWeapon()->GetWeaponID());
 
 					float percent = (pShooter->GetPosX() - CPlayer::GetInstance()->GetPosX())/

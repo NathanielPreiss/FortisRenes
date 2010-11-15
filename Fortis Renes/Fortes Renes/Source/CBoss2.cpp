@@ -51,7 +51,7 @@ CBoss2::CBoss2(void) : CEnemy(WEP_RYNOV)
 
 CBoss2::~CBoss2(void)
 {
-	CSGD_TextureManager::GetInstance()->UnloadTexture(GetImageID());
+	//CSGD_TextureManager::GetInstance()->UnloadTexture(GetImageID());
 }
 
 void CBoss2::Update(float fElapsedTime)

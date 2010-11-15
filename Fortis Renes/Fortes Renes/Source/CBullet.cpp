@@ -21,6 +21,7 @@ CBullet::CBullet( void )
 
 	m_fRotation = 0.0f;
 	m_pOwner = NULL;
+	m_fDistanceTraveled = 0.0f;
 
 	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture( "Resource/Graphics/NaP_Bullet.png" ));
 }
@@ -32,6 +33,19 @@ CBullet::~CBullet(void)
 
 void CBullet::Update(float fElapsedTime )
 {
+	// Calculate the distance traveled.
+	tVector2D distanceTraveled;
+
+	distanceTraveled.fX = GetVelX();
+	distanceTraveled.fY = GetVelY();
+
+	float dt = Vector2DLength(distanceTraveled);
+
+	m_fDistanceTraveled += dt*fElapsedTime;
+
+	if( m_fDistanceTraveled > m_fRange )
+		CMessageSystem::GetInstance()->SendMsg( new CDestroyBullet(this));
+
 	CBase::Update(fElapsedTime);
 
 	if( GetPosX() - GetWidth()*0.5f < 0 || GetPosY() - GetHeight()*0.5f < 0 )
