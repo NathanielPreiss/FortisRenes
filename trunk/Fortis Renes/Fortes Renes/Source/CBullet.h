@@ -11,6 +11,8 @@ class CBullet : public CBase
 	CBase*	m_pOwner;
 	int		m_nDamage;
 	int		m_nWeaponID;
+	float	m_fDistanceTraveled;
+	int		m_fRange;
 
 public:
 	CBullet(void);
@@ -28,6 +30,7 @@ public:
 	void SetOwner( CBase* pOwner ) { m_pOwner = pOwner; }
 	void SetDamage( int nDamage ) { m_nDamage = nDamage; }
 	void SetWeaponID( int nWeaponID ) { m_nWeaponID = nWeaponID; }
+	void SetRange( int fRange ) { m_fRange = fRange; }
 
 	RECT GetRect( void );
 	bool CheckCollision(CBase* pBase);

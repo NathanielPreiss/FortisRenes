@@ -120,6 +120,9 @@ void CEnemy::ChangeState(IArtIntState* newState)
 
 bool CEnemy::CheckCollision( CBase *pBase )
 {
+	if( GetDead() == true )
+		return true;
+
 	if( pBase->GetType() == OBJECT_ALLY )
 	{
 		tVector2D distance;
