@@ -121,6 +121,7 @@ void CPlayer::NewPlayer(void)
 	SetHeight(32);
 	SetHealth(100);
 	SetLayer(10);
+	SetDriving(false);
 	m_chResearchArmorLevel = 0;
 	m_chResearchWeaponLevel = 0;
 	m_chResearchConsumableLevel = 0;
@@ -269,16 +270,6 @@ bool CPlayer::CheckCollision(CBase* pBase )
 			return false;
 		}
 
-		if( pBase->GetType() == OBJECT_JEEP)
-		{
-			if(CSGD_DirectInput::GetInstance()->KeyPressed(DIK_E))
-			{
-				m_pTempJeep = (CJeep*)pBase;
-				CEventSystem::GetInstance()->SendEvent("Change_Position", pBase);
-				ChangeState(CJeepState::GetInstance());
-			}
-		}
-
 		if( pBase->GetType() == OBJECT_ENEMY)
 		{			
 			if(GetPlayerState() == CJeepState::GetInstance() || GetPlayerState() == CTankState::GetInstance())
@@ -291,13 +282,31 @@ bool CPlayer::CheckCollision(CBase* pBase )
 			}
 		}
 
+		if( pBase->GetType() == OBJECT_JEEP)
+		{
+			if(!GetDriving())
+			{
+				if(CSGD_DirectInput::GetInstance()->KeyPressed(DIK_E))
+				{
+					m_pTempJeep = (CJeep*)pBase;
+					CEventSystem::GetInstance()->SendEvent("Change_Position", pBase);
+					ChangeState(CJeepState::GetInstance());
+					SetDriving(true);
+				}
+			}
+		}
+
 		if(pBase->GetType() == OBJECT_TANK)
 		{
-			if(CSGD_DirectInput::GetInstance()->KeyPressed(DIK_E))
+			if(!GetDriving())
 			{
-				m_pTempTank = (CTank*)pBase;
-				CEventSystem::GetInstance()->SendEvent("Change_Position", pBase);
-				ChangeState(CTankState::GetInstance());
+				if(CSGD_DirectInput::GetInstance()->KeyPressed(DIK_E))
+				{
+					m_pTempTank = (CTank*)pBase;
+					CEventSystem::GetInstance()->SendEvent("Change_Position", pBase);
+					ChangeState(CTankState::GetInstance());
+					SetDriving(true);
+				}
 			}
 		}
 

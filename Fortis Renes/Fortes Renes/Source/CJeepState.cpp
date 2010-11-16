@@ -42,6 +42,7 @@ void CJeepState::Enter()
 	pPlayer->SetWidth(32);
 	pPlayer->SetHeight(64);
 	pPlayer->SetHealth(400);
+	pPlayer->SetMaxHealth(400);
 
 	m_vDirection = pPlayer->GetTempJeep()->GetDirection();
 
@@ -79,6 +80,9 @@ void CJeepState::Update(float fElapsedTime)
 
 	if(CSGD_DirectInput::GetInstance()->KeyPressed(DIK_E))
 	{
+		pPlayer->SetDriving(false);
+		pPlayer->SetHealth(100);
+		pPlayer->SetMaxHealth(100);
 		CEventSystem::GetInstance()->SendEvent("Spawn_Jeep", CPlayer::GetInstance()->GetTempJeep());
 
 		ChangeState(CPlayerInfantryState::GetInstance());
@@ -103,6 +107,8 @@ void CJeepState::Update(float fElapsedTime)
 	if(pPlayer->GetHealth() < 150)
 	{
 		pPlayer->SetHealth(100);
+		pPlayer->SetMaxHealth(100);
+		pPlayer->SetDriving(false);
 
 		ChangeState(CPlayerInfantryState::GetInstance());
 	}
@@ -117,7 +123,7 @@ void CJeepState::Render(float fCamPosX, float fCamPosY)
 	CSGD_TextureManager::GetInstance()->Draw(IS->GetHud(), 42, 370);
 	CSGD_TextureManager::GetInstance()->Draw(IS->GetHud(), 423, 370);
 	char buffer[32];
-	sprintf_s(buffer, _countof(buffer), "Health: %d : %d", pPlayer->GetMaxHealth(), pPlayer->GetHealth()-150);
+	sprintf_s(buffer, _countof(buffer), "Health: %d : %d", pPlayer->GetMaxHealth()-150, pPlayer->GetHealth()-150);
 	CBitmapFont::GetInstance()->Draw(buffer, 64, 410, 0.5f);
 	
 	pPlayer->GetInventory()->Render(pPlayer->GetCurrItem());
