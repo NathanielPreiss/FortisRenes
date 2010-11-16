@@ -27,7 +27,7 @@ CPlayer::CPlayer(void)
 	SetHealth(GetMaxHealth());
 	m_fTimeBucket = 0.0f;
 	m_fConsumableTimer = 1.5f;
-	SetAnimation(CAnimationManager::GetInstance()->LoadAnimation("Resource\\Data\\Animations\\JeG_LightInfantry.bin"));
+	SetAnimation(CAnimationManager::GetInstance()->LoadAnimation("Resource\\Data\\Animations\\JeG_Player.bin"));
 	GetAnimation()->currAnimation->Play();
 	SetWidth(20);
 	SetHeight(32);
