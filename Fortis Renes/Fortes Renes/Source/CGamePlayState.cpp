@@ -388,6 +388,8 @@ bool CGamePlayState::LoadLevel(const char* filename, bool loadXML)
 						// since creating another singleton is silly and not allowed, we just set the player's position to the editors position
 						CPlayer::GetInstance()->SetPosX(x-(w*0.5f));
 						CPlayer::GetInstance()->SetPosY(y-(w*0.5f));
+						CPlayer::GetInstance()->SetWidth(20);
+						CPlayer::GetInstance()->SetHeight(32);
 						CPlayer::GetInstance()->SetHealth(CPlayer::GetInstance()->GetMaxHealth());
 						// and we will always add the player to the object manager here...ask me why if you are curious
 						CObjectManager::GetInstance()->AddObject(CPlayer::GetInstance());

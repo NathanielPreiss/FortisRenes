@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <player_save>
-<<<<<<< .mine
-    <m_nMoney value="1035" />
-    <m_nRep value="12" />
-=======
     <m_nMoney value="1000" />
     <m_nRep value="0" />
->>>>>>> .r26
     <m_nMaxHealth value="100" />
-<<<<<<< .mine
-    <m_nHealthPacks value="2" />
-    <m_nAdrenaline value="1" />
-=======
     <m_nHealthPacks value="0" />
     <m_nAdrenaline value="0" />
->>>>>>> .r26
 </player_save>
