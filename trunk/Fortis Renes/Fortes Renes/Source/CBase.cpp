@@ -55,6 +55,8 @@ CBase::CBase(void) : m_nType(OBJECT_BASE)
 ////////////////////////////////////////////////////////
 CBase::~CBase(void)
 {
+	if(GetAnimation() != NULL)
+		CAnimationManager::GetInstance()->UnloadAnimation(GetAnimation());
 	CEventSystem::GetInstance()->UnregisterClient("Change_Position", this);
 	CEventSystem::GetInstance()->UnregisterClient("Spawn_Jeep", this);
 	CEventSystem::GetInstance()->UnregisterClient("Spawn_Tank", this);
@@ -204,9 +206,9 @@ void CBase::SetCurrAnimation(const char* szAnimationName)
 
 	for( unsigned int count = 0; count < GetAnimation()->currSheet->m_vAnimations.size(); count++ )
 	{
-		if( strcmp(GetAnimation()->currSheet->m_vAnimations[count].szName, szAnimationName) == 0 )
+		if( strcmp(GetAnimation()->currSheet->m_vAnimations[count]->szName, szAnimationName) == 0 )
 		{
-			GetAnimation()->currAnimation = &(GetAnimation()->currSheet->m_vAnimations[count]);
+			GetAnimation()->currAnimation = GetAnimation()->currSheet->m_vAnimations[count];
 			break;
 		}
 	}

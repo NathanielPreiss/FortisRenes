@@ -81,6 +81,7 @@ public:
 	int GetMaxHealth(void) { return m_nMaxHealth; }
 	int GetArmor(void) { return m_nArmor; }
 	tAnimationInstance* GetAnimation(void) { return m_pAnimation; }
+
 	bool IsCoverObject(void) { return m_bCoverObject; }
 	bool IsDestructable(void) { return m_bDestructable; }
 	bool GetCull(void) { return m_bCull; }

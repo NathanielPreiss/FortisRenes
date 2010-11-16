@@ -29,7 +29,6 @@ CLightInfantry::CLightInfantry(void) : CEnemy(WEP_MACHINEGUN)
 
 CLightInfantry::~CLightInfantry(void)
 {
-	CAnimationManager::GetInstance()->UnloadAnimation(GetAnimation());
 	CEventSystem::GetInstance()->UnregisterClient("big.bang",this);
 	CEventSystem::GetInstance()->UnregisterClient("form.up",this);
 	CEventSystem::GetInstance()->UnregisterClient("engage.player",this);

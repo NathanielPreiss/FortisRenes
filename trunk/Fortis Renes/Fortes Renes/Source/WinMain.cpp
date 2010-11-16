@@ -1,5 +1,5 @@
 #include <windows.h>	//	Needed for Windows Applications.
-//#include <vld.h>
+#include <vld.h>
 #include "CGame.h"		//	GAME CLASS!!!
 //#include "../resource.h"
 
