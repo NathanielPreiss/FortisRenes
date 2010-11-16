@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <player_save>
-    <m_nMoney value="1175" />
-    <m_nRep value="75" />
+    <m_nMoney value="1000" />
+    <m_nRep value="0" />
     <m_nMaxHealth value="100" />
     <m_nHealthPacks value="0" />
     <m_nAdrenaline value="0" />
