@@ -120,7 +120,6 @@ void CGame::Shutdown(void)
 	m_pES->ShutdownEventSystem();
 	m_pMS->ShutdownMessageSystem();
 
-	CAnimationManager::GetInstance()->DeleteInstance();
 
 	//Shutting down in opposite order
 	if( m_pDI )

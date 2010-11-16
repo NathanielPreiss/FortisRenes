@@ -22,7 +22,7 @@ struct tSheet
 	/**
 	 * Vector of animations
 	 */
-	vector<tAnimation> m_vAnimations;
+	vector<tAnimation*> m_vAnimations;
 	/**
 	 * file name animations
 	 */

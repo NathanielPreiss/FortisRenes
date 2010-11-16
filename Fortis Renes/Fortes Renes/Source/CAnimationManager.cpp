@@ -11,9 +11,8 @@ CAnimationManager* CAnimationManager::m_pAnimationInstance = NULL;
 
 CAnimationManager* CAnimationManager::GetInstance(void)
 {
-	if(m_pAnimationInstance == NULL)
-		m_pAnimationInstance = new CAnimationManager();
-	return m_pAnimationInstance;
+	static CAnimationManager instance;
+	return &instance;
 }
 
 void CAnimationManager::DeleteInstance(void)
@@ -33,7 +32,6 @@ CAnimationManager::CAnimationManager(void)
 CAnimationManager::~CAnimationManager(void)
 {
 }
-
 
 tAnimationInstance* CAnimationManager::LoadAnimation(const char* szFilePath) 
 {
@@ -61,7 +59,7 @@ tAnimationInstance* CAnimationManager::LoadAnimation(const char* szFilePath)
 
 		sheet->szFilePath = sFilePath.c_str();
 
-		//delete[] szStringBuffer;
+		delete[] szStringBuffer;
 
 		int nNumAnimations = 0;
 		int nNumFrames = 0;
@@ -124,16 +122,16 @@ tAnimationInstance* CAnimationManager::LoadAnimation(const char* szFilePath)
 				animation->m_vFrames.push_back(frame);
 			}
 
-			sheet->m_vAnimations.push_back(*animation);
+			sheet->m_vAnimations.push_back(animation);
 		}
 
 		sheet->ImageID = m_pTM->LoadTexture(sheet->szFilePath);
 
 		instance->currSheet = sheet;
-		instance->currAnimation = &instance->currSheet->m_vAnimations[0];
+		instance->currAnimation = instance->currSheet->m_vAnimations[0];
 		instance->currFrame = instance->currAnimation->m_vFrames[0];
 
-		m_vSheets.push_back(*sheet);
+		//m_vSheets.push_back(sheet);
 
 		fs.close();
 	}
@@ -143,24 +141,28 @@ tAnimationInstance* CAnimationManager::LoadAnimation(const char* szFilePath)
 
 void CAnimationManager::UnloadAnimation(tAnimationInstance* instance) 
 {
-	//	Jeremy...first...fix your stupid memory leaks...thanks
-	//	Jeremy...second...remember to put the name of your artist friend in the credits...thanks
-	//	Jeremy...third...i got nothin'
-	//	Jeremy...fourth...fix your stupid memory leaks PLEASE...thanks
-	//	Nate...first... ... ... ...nvm
-	//
-	//
-	//
-	//
-	//
-//	for(unsigned int s = 0; s < m_vSheets.size(); s++)
-//	{
-//		for(unsigned int i = 0; i < instance->currSheet->m_vAnimations.size(); i++)
-//		{
-//			for(unsigned int j = 0; j < instance->currSheet->m_vAnimations[i].m_vFrames.size(); j++) 
-//			{
-//				//delete instance->currSheet->m_vAnimations[i].m_vFrames[j];
-//			}
-//		}
-//	}
-}
+	for(unsigned int i = 0; i < instance->currSheet->m_vAnimations.size(); i++)
+	{	
+		instance->currAnimation = instance->currSheet->m_vAnimations[i];
+		for(unsigned int j = 0; j < instance->currAnimation->m_vFrames.size(); j++)
+		{
+			if(instance->currAnimation->m_vFrames[j]->szTriggerName)
+				delete instance->currAnimation->m_vFrames[j]->szTriggerName;
+			delete instance->currAnimation->m_vFrames[j];
+		}
+		instance->currAnimation->m_vFrames.clear();
+	}
+
+	for(unsigned int i = 0; i < instance->currSheet->m_vAnimations.size(); i++)
+	{
+		tAnimation* temp = instance->currSheet->m_vAnimations[i];
+		delete temp->szName;
+		delete temp;
+	}
+	instance->currSheet->m_vAnimations.clear();
+
+	if(instance->currSheet)
+		delete instance->currSheet;
+	if(instance)
+		delete instance;
+}		

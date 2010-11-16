@@ -29,7 +29,7 @@ class CAnimationManager
 	/**
 	 * All the sheets for animations
 	 */
-	vector<tSheet> m_vSheets;
+	vector<tSheet*> m_vSheets;
 	/**
 	 * static member instance of the animation manager
 	 */

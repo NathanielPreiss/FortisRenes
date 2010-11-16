@@ -69,7 +69,7 @@ CBoss1::CBoss1(void) : CEnemy(WEP_RIFLE)
 
 CBoss1::~CBoss1(void)
 {
-	//CSGD_TextureManager::GetInstance()->UnloadTexture(GetImageID());
+		//CSGD_TextureManager::GetInstance()->UnloadTexture(GetImageID());
 	//delete bomb;
 	//delete bomb2;
 	//delete bomb3;

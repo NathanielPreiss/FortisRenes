@@ -18,7 +18,7 @@ void tAnimationInstance::Render(float fPosX, float fPosY, float fScaleX, float f
 void tAnimationInstance::Update(float fElapsedTime)
 {
 	if(!currAnimation)
-		currAnimation = &currSheet->m_vAnimations[0];
+		currAnimation = currSheet->m_vAnimations[0];
 
 	//	if it is not playing, quit function
 	if(!currAnimation->bIsPlaying)
