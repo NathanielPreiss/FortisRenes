@@ -44,10 +44,11 @@ void CHowToPlayState::Update(float fElapsedTime)
 void CHowToPlayState::Render(void)
 {
 	CSGD_TextureManager::GetInstance()->Draw( m_nBackgroundID, 0, 0 );
-	CBitmapFont::GetInstance()->Draw("Movement: W A S D",150,100,0.75f);
-	CBitmapFont::GetInstance()->Draw("Switch Weapons: Up Down Arrow / Mouse Scroll Wheel",150,150,0.75f);
-	CBitmapFont::GetInstance()->Draw("Shoot: Left Click",150,200,0.75f);
-	CBitmapFont::GetInstance()->Draw("Talk: Enter",150,250,0.75f);
+	CBitmapFont::GetInstance()->Draw("Movement: W A S D",325,100,0.75f);
+	CBitmapFont::GetInstance()->Draw("Switch Weapons: Up Down Arrow",150,25,0.75f);
+	CBitmapFont::GetInstance()->Draw("                Mouse Scroll Wheel", 150, 50, 0.75f);
+	CBitmapFont::GetInstance()->Draw("Shoot: Left Click",350,150,0.75f);
+	CBitmapFont::GetInstance()->Draw("Talk: Enter",425,200,0.75f);
 }
 void CHowToPlayState::Exit(void)
 {
