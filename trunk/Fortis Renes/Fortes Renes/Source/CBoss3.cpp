@@ -29,7 +29,6 @@ CBoss3::CBoss3(void) : CEnemy(WEP_RIFLE)
 	SetHealth(100);
 	m_vDirection.fX = 0.0f;
 	m_vDirection.fY = 1.0f;
-	SetAnimation(0);
 	tankmode = false;
 	m_fRot = 0.0f;
 
