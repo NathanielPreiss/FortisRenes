@@ -390,6 +390,8 @@ bool CGamePlayState::LoadLevel(const char* filename, bool loadXML)
 						CPlayer::GetInstance()->SetPosY(y-(w*0.5f));
 						CPlayer::GetInstance()->SetWidth(20);
 						CPlayer::GetInstance()->SetHeight(32);
+						CPlayer::GetInstance()->SetMaxHealth(100);
+						CPlayer::GetInstance()->SetHealth(100);
 						CPlayer::GetInstance()->SetHealth(CPlayer::GetInstance()->GetMaxHealth());
 						// and we will always add the player to the object manager here...ask me why if you are curious
 						CObjectManager::GetInstance()->AddObject(CPlayer::GetInstance());

@@ -171,7 +171,7 @@ void CDialogueManager::NextSentence()
 
 void CScript::CallEvent()
 {
-	if( m_vScript[m_nCurrentSentence]->GetEventBool() == true )
+	if( m_vScript.size() > 0 &&  m_vScript[m_nCurrentSentence]->GetEventBool() == true )
 	{
 		CEventSystem::GetInstance()->SendEvent(m_vScript[m_nCurrentSentence]->GetTrigger());
 		m_vScript[m_nCurrentSentence]->SetEventBool(false);
