@@ -27,6 +27,7 @@ private:
 	int m_nNumWeapons;
 	bool m_bMoving;
 	bool m_bFiring;
+	bool m_bDriving;
 	unsigned char m_chResearchArmorLevel;
 	unsigned char m_chResearchWeaponLevel;
 	unsigned char m_chResearchConsumableLevel;
@@ -105,6 +106,8 @@ public:
 	bool GetIfMoving(void) { return m_bMoving; }
 	void SetIfFiring(bool bFiring) { m_bFiring = bFiring; }
 	void SetIfMoving(bool bMoving) { m_bMoving = bMoving; }
+	void SetDriving(bool bDriving) { m_bDriving = bDriving; }
+	bool GetDriving() { return m_bDriving; }
 
 	void SetFacing(float x, float y) { m_vFacingNormal.fX = x; m_vFacingNormal.fY = y; }
 	void SetPlayerState(IPlayerState* pPlayerState) { m_pPlayerState = pPlayerState; }

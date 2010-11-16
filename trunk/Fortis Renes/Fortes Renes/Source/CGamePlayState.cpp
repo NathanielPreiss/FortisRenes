@@ -52,12 +52,12 @@ void CGamePlayState::Enter(void)
 	m_bLevel4b = false;
 
 	LoadLevel("Resource/Levels/JeG_TutorialLevel.bin");
+	//LoadLevel("Resource/Levels/testtesttest.bin");
 
 	m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/GamePlayStateBG.wav");
 	CSGD_WaveManager::GetInstance()->SetPan(m_nBGMID, CGame::GetInstance()->GetPanning() );
 	CSGD_WaveManager::GetInstance()->SetVolume(m_nBGMID, CGame::GetInstance()->GetBGMVolume() );
 	CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
-	
 
 	CCamera::GetInstance()->UpdateCameraPos(CPlayer::GetInstance()->GetPosX(), CPlayer::GetInstance()->GetPosY());
 

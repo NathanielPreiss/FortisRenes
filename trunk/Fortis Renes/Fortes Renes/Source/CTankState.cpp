@@ -29,8 +29,6 @@ CTankState::CTankState(void)
 //		destructor
 CTankState::~CTankState(void)
 {
-	//CSGD_TextureManager::GetInstance()->UnloadTexture(m_nBaseImageID);
-	//CSGD_TextureManager::GetInstance()->UnloadTexture(m_nTurretImageID);
 }
 
 //	Singleton accessor
@@ -50,6 +48,7 @@ void CTankState::Enter()
 	pPlayer->SetHeight(64);
 	pPlayer->SetCurrentWeapon(WEP_BAZOOKA);
 	pPlayer->SetHealth(650);
+	pPlayer->SetMaxHealth(650);
 
 	m_fRot = CPlayer::GetInstance()->GetTempTank()->GetRotation();
 	m_vDirection = CPlayer::GetInstance()->GetTempTank()->GetDirection();
@@ -87,6 +86,9 @@ void CTankState::Update(float fElapsedTime)
 
 	if(CSGD_DirectInput::GetInstance()->KeyPressed(DIK_E))
 	{
+		pPlayer->SetDriving(false);
+		pPlayer->SetHealth(100);
+		pPlayer->SetMaxHealth(100);
 		pPlayer->SetCurrentWeapon(WEP_PISTOL);
 		CEventSystem::GetInstance()->SendEvent("Spawn_Tank", CPlayer::GetInstance()->GetTempTank());
 
@@ -132,7 +134,9 @@ void CTankState::Update(float fElapsedTime)
 	if(pPlayer->GetHealth() < 150)
 	{
 		pPlayer->SetHealth(100);
+		pPlayer->SetMaxHealth(100);
 		pPlayer->SetCurrentWeapon(WEP_PISTOL);
+		pPlayer->SetDriving(false);
 
 		ChangeState(CPlayerInfantryState::GetInstance());
 	}
@@ -153,7 +157,7 @@ void CTankState::Render(float fCamPosX, float fCamPosY)
 	CSGD_TextureManager::GetInstance()->Draw(IS->GetHud(), 42, 370);
 	CSGD_TextureManager::GetInstance()->Draw(IS->GetHud(), 423, 370);
 	char buffer[32];
-	sprintf_s(buffer, _countof(buffer), "Health: %d : %d", pPlayer->GetMaxHealth(), pPlayer->GetHealth()-150);
+	sprintf_s(buffer, _countof(buffer), "Health: %d : %d", pPlayer->GetMaxHealth()-150, pPlayer->GetHealth()-150);
 	CBitmapFont::GetInstance()->Draw(buffer, 64, 410, 0.5f);
 	
 	pPlayer->GetInventory()->Render(pPlayer->GetCurrItem());

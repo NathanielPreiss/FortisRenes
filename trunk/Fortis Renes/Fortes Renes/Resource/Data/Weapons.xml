@@ -16,7 +16,7 @@
          </knife>
          <pistol>
                 <m_nRange value="100"/>
-                <m_nDamage value="15"/>
+                <m_nDamage value="30"/>
                 <m_nMaxAmmo value="36"/>
                 <m_nWeaponID value="1"/>
                 <m_nBulletID value="1"/>
