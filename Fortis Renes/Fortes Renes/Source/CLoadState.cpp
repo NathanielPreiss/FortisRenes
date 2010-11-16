@@ -31,7 +31,7 @@ CLoadState* CLoadState::GetInstance(void)
 void CLoadState::Enter(void)
 {
 	// Load texture
-	m_nBackgroundID = CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/HowToPlayStateBG.bmp");
+	m_nBackgroundID = CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/IntroStateBG.bmp");
 	m_nNumberOfObjects = 0;
 	m_nObjectsLoaded = 0;
 	m_nPercentFinished = 0;

@@ -12,6 +12,7 @@
 #include "DirectX Wrappers/CSGD_Direct3D.h"
 #include "DirectX Wrappers/CSGD_TextureManager.h"
 #include "CGame.h"
+#include "CBitmapFont.h"
 
 CHowToPlayState::CHowToPlayState(void)
 {
@@ -28,7 +29,7 @@ CHowToPlayState* CHowToPlayState::GetInstance(void)
 void CHowToPlayState::Enter(void)
 {
 	// Load texture
-	m_nBackgroundID = CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/HowToPlayStateBG.bmp");
+	m_nBackgroundID = CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/IntroStateBG.bmp");
 }
 bool CHowToPlayState::Input(void)
 {
@@ -43,6 +44,10 @@ void CHowToPlayState::Update(float fElapsedTime)
 void CHowToPlayState::Render(void)
 {
 	CSGD_TextureManager::GetInstance()->Draw( m_nBackgroundID, 0, 0 );
+	CBitmapFont::GetInstance()->Draw("Movement: W A S D",150,100,0.75f);
+	CBitmapFont::GetInstance()->Draw("Switch Weapons: Up Down Arrow / Mouse Scroll Wheel",150,150,0.75f);
+	CBitmapFont::GetInstance()->Draw("Shoot: Left Click",150,200,0.75f);
+	CBitmapFont::GetInstance()->Draw("Talk: Enter",150,250,0.75f);
 }
 void CHowToPlayState::Exit(void)
 {
