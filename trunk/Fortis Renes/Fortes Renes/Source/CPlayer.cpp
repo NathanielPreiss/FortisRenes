@@ -361,7 +361,8 @@ void CPlayer::Update(float fElapsedTime)
 	}
 
 	m_pPlayerState->Update(fElapsedTime);
-	m_pWeapon[m_nCurrentWeapon]->Update(fElapsedTime);
+	if( m_nCurrentWeapon > -1 && m_nCurrentWeapon < m_nNumWeapons )
+		m_pWeapon[m_nCurrentWeapon]->Update(fElapsedTime);
 
 	// Update facing normal
 	tVector2D toCursor;
