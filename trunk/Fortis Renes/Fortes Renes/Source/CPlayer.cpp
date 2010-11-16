@@ -221,10 +221,13 @@ bool CPlayer::CheckCollision(CBase* pBase )
 
 		vector<IGameState*> vec = *(CGame::GetInstance()->GetGameStates());
 
-			if( Vector2DLength(toAlly) < 40 && vec[vec.size()-1] != CTalkingState::GetInstance() )
+		if( Vector2DLength(toAlly) < 40 && vec[vec.size()-1] != CTalkingState::GetInstance() )
 			SetTalkBool(true);
 		else
 			SetTalkBool(false);
+
+		if( Vector2DLength(toAlly) > 120 && vec[vec.size()-1] == CTalkingState::GetInstance() )
+			CGame::GetInstance()->RemoveTopState();
 	}
 	RECT collision;
 	if( CBase::CheckCollision( pBase, &collision ) )
