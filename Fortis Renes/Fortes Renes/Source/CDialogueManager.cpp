@@ -3,6 +3,7 @@
 #include "CEventSystem.h"
 #include "DirectX Wrappers/CSGD_Direct3D.h"
 #include "CPlayer.h"
+#include "CTalkingState.h"
 #include "CGame.h"
 #include <fstream>
 using namespace std;
@@ -110,6 +111,8 @@ void CDialogueManager::LoadDialogue(const char *szFilename)
 			m_vScripts.push_back(newScript);
 		}
 	}
+
+	in.close();
 }
 
 void CDialogueManager::UnloadDialogue()
@@ -119,6 +122,7 @@ void CDialogueManager::UnloadDialogue()
 	{
 		delete (m_vScripts[i]);
 	}
+	m_vScripts.clear();
 }
 
 void CDialogueManager::Render(void)
@@ -146,7 +150,14 @@ void CDialogueManager::UseProgressDialogue(void)
 		SetDialogue("Mission4");
 		break;
 	case 5:
-		SetDialogue("SiegeMission");
+		{
+			//SetDialogue("SiegeMission");
+			vector<IGameState*> vec = *(CGame::GetInstance()->GetGameStates());
+			CEventSystem::GetInstance()->SendEvent("seige.level");
+			if( vec[vec.size()-1] == CTalkingState::GetInstance() )
+				CGame::GetInstance()->RemoveTopState();
+		}
+		break;
 	};
 }
 

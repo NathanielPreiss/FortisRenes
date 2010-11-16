@@ -110,7 +110,6 @@ void CGame::Initialize( HWND hWnd, HINSTANCE hInstance, int nScreenWidth, int nS
 	AddState( CIntroState::GetInstance() );		
 	
 	m_dwPreviousTime = m_dwTimeStamp = GetTickCount();
-	CDialogueManager::GetInstance()->LoadDialogue("Resource/Data/FortisRenesScript.bin");
 }
 
 //		Cleanup
@@ -153,7 +152,6 @@ void CGame::Shutdown(void)
 		m_pD3D->ShutdownDirect3D();
 		m_pD3D = NULL;
 	}
-	CDialogueManager::GetInstance()->UnloadDialogue();
 }
 
 //		Execution

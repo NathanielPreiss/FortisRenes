@@ -51,14 +51,17 @@ void CObjectManager::UpdateObjects(float fElapsedTime)
 	}
 
 	// Check for tile culling
-	for( int c = 0; c < m_gmMap.MapColumn; c++ )
+	if( m_gmMap.m_vTileList != NULL )
 	{
-		for( int r = 0; r < m_gmMap.MapRow; r++ )
+		for( int c = 0; c < m_gmMap.MapColumn; c++ )
 		{
-			if( IntersectRect(&rDummy,&rWindow,&m_gmMap.m_vTileList[c][r].GetWorldRect()) )
-				m_gmMap.m_vTileList[c][r].SetCull(false);
-			else
-				m_gmMap.m_vTileList[c][r].SetCull(true);
+			for( int r = 0; r < m_gmMap.MapRow; r++ )
+			{
+				if( IntersectRect(&rDummy,&rWindow,&m_gmMap.m_vTileList[c][r].GetWorldRect()) )
+					m_gmMap.m_vTileList[c][r].SetCull(false);
+				else
+					m_gmMap.m_vTileList[c][r].SetCull(true);
+			}
 		}
 	}
 
