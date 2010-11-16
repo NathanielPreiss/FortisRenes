@@ -73,6 +73,7 @@ void CGamePlayState::Enter(void)
 	CEventSystem::GetInstance()->RegisterClient("enter.lobby",this);
 	CEventSystem::GetInstance()->RegisterClient("leave.lobby",this);
 
+	CDialogueManager::GetInstance()->LoadDialogue("Resource/Data/FortisRenesScript.bin");
 }
 bool CGamePlayState::Input(void)
 {
@@ -291,6 +292,7 @@ void CGamePlayState::Exit(void)
 	CObjectManager::GetInstance()->RemoveAllObjects();
 	CObjectManager::GetInstance()->DeleteInstance();
 
+	CDialogueManager::GetInstance()->UnloadDialogue();
 }
 
 CGamePlayState* CGamePlayState::GetInstance(void)
