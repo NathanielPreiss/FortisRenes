@@ -37,7 +37,7 @@ void CShopState::Enter(void)
 	m_nSellSelection = 0;
 	m_nBuySelection = 0;
 	m_vSellList.clear();
-	for(int i = 0; i < CON_NUMBER + CPlayer::GetInstance()->GetNumWeapons(); i++)
+	for(int i = 0; i < (CON_NUMBER-1) + CPlayer::GetInstance()->GetNumWeapons(); i++)
 	{
 		RECT *temp = new RECT();
 		temp->left = 340;
@@ -47,7 +47,7 @@ void CShopState::Enter(void)
 		m_vSellList.push_back(temp);
 	}
 	m_vBuyList.clear();
-	for(int i = 0; i < CON_NUMBER + CPlayer::GetInstance()->GetNumWeapons(); i++)
+	for(int i = 0; i < (CON_NUMBER-1) + CPlayer::GetInstance()->GetNumWeapons(); i++)
 	{
 		RECT *temp = new RECT();
 		temp->left = 50;
