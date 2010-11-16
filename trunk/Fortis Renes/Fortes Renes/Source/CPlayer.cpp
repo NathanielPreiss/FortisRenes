@@ -29,6 +29,8 @@ CPlayer::CPlayer(void)
 	m_fConsumableTimer = 1.5f;
 	SetAnimation(CAnimationManager::GetInstance()->LoadAnimation("Resource\\Data\\Animations\\JeG_LightInfantry.bin"));
 	GetAnimation()->currAnimation->Play();
+	SetWidth(20);
+	SetHeight(32);
 }
 CPlayer::~CPlayer(void)
 {
@@ -113,11 +115,11 @@ void CPlayer::NewPlayer(void)
 	CEventSystem::GetInstance()->RegisterClient("next.weapon",this);
 	CEventSystem::GetInstance()->RegisterClient("progress.up",this);
 	m_nSpeed = 250;
-	SetArmor(0);
+	SetArmor(5);
 	SetPosX(320.0f);
 	SetPosY(240.0f);
 	SetLayer(10);
-	SetWidth(16);
+	SetWidth(20);
 	SetHeight(32);
 	SetHealth(100);
 	SetLayer(10);
@@ -227,8 +229,8 @@ bool CPlayer::CheckCollision(CBase* pBase )
 		else
 			SetTalkBool(false);
 
-		if( Vector2DLength(toAlly) > 120 && vec[vec.size()-1] == CTalkingState::GetInstance() )
-			CGame::GetInstance()->RemoveTopState();
+		//if( Vector2DLength(toAlly) > 120 && vec[vec.size()-1] == CTalkingState::GetInstance() )
+			//CGame::GetInstance()->RemoveTopState();
 	}
 	RECT collision;
 	if( CBase::CheckCollision( pBase, &collision ) )
