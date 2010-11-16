@@ -123,6 +123,7 @@ void CPlayer::NewPlayer(void)
 	SetHeight(32);
 	SetHealth(100);
 	SetLayer(10);
+	m_chProgress = 0;
 	SetDriving(false);
 	m_chResearchArmorLevel = 0;
 	m_chResearchWeaponLevel = 0;
