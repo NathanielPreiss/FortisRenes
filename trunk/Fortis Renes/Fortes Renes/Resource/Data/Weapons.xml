@@ -25,7 +25,7 @@
                 <m_nMaxMagazine value="6"/>
                 <m_fReloadTime value="1.5"/>
                 <m_nBulletSpeed value="200"/>
-                <m_nSoundDistance value="50"/>
+                <m_nSoundDistance value="200"/>
                 <m_nNumBulletsFired value="1"/>
          </pistol>
          <machinegun>
@@ -39,7 +39,7 @@
                 <m_nMaxMagazine value="25"/>
                 <m_fReloadTime value="1.5"/>
                 <m_nBulletSpeed value="200"/>
-                <m_nSoundDistance value="100"/>
+                <m_nSoundDistance value="300"/>
                 <m_nNumBulletsFired value="1"/>
          </machinegun>
          <rifle>
@@ -67,7 +67,7 @@
                 <m_nMaxMagazine value="5"/>
                 <m_fReloadTime value="1.5"/>
                 <m_nBulletSpeed value="200"/>
-                <m_nSoundDistance value="250"/>
+                <m_nSoundDistance value="400"/>
                 <m_nNumBulletsFired value="10"/>
          </shotgun>
          <bazooka>
@@ -100,6 +100,7 @@
          </rynov>
         
 </weapons>
+
 
 
 
