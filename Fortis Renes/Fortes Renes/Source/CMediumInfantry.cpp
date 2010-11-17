@@ -31,6 +31,7 @@ CMediumInfantry::~CMediumInfantry(void)
 {
 	if(GetAnimation() != NULL)
 		CAnimationManager::GetInstance()->UnloadAnimation(GetAnimation());
+	SetAnimation(NULL);
 	CEventSystem::GetInstance()->UnregisterClient("big.bang",this);
 	CEventSystem::GetInstance()->UnregisterClient("form.up",this);
 	CEventSystem::GetInstance()->UnregisterClient("engage.player",this);
