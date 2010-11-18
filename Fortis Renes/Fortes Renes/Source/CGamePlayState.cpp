@@ -55,7 +55,7 @@ void CGamePlayState::Enter(void)
 	LoadLevel("Resource/Levels/JeG_TutorialLevel.bin");
 	//LoadLevel("Resource/Levels/testtesttest.bin");
 
-	m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/GamePlayStateBG.wav");
+	m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/10 - Pot City.wav");
 	CSGD_WaveManager::GetInstance()->SetPan(m_nBGMID, CGame::GetInstance()->GetPanning() );
 	CSGD_WaveManager::GetInstance()->SetVolume(m_nBGMID, CGame::GetInstance()->GetBGMVolume() );
 	CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
@@ -94,26 +94,46 @@ void CGamePlayState::LoadLevelHelper()
 	case 0:
 		{
 			LoadLevel("Resource/Levels/JeG_TutorialLevel.bin");
+			CSGD_WaveManager::GetInstance()->Stop(m_nBGMID);
+			CSGD_WaveManager::GetInstance()->UnloadWave(m_nBGMID);
+			m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/10 - Pot City.wav");
+			CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
 		}
 		break;
 	case 1:
 		{
 			LoadLevel("Resource/Levels/JeG_Level1.bin");
+			CSGD_WaveManager::GetInstance()->Stop(m_nBGMID);
+			CSGD_WaveManager::GetInstance()->UnloadWave(m_nBGMID);
+			m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/02 - Rush.wav");
+			CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
 		}
 		break;
 	case 2:
 		{
 			LoadLevel("Resource/Levels/JeG_Level2.bin");
+			CSGD_WaveManager::GetInstance()->Stop(m_nBGMID);
+			CSGD_WaveManager::GetInstance()->UnloadWave(m_nBGMID);
+			m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/09 - Piano Black.wav");
+			CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
 		}
 		break;
 	case 3:
 		{
 			LoadLevel("Resource/Levels/ArtilleryLevel.bin");
+			CSGD_WaveManager::GetInstance()->Stop(m_nBGMID);
+			CSGD_WaveManager::GetInstance()->UnloadWave(m_nBGMID);
+			m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/04 - Bad Dog No Biscuits.wav");
+			CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
 		}
 		break;
 	case 4:
 		{
 			LoadLevel("Resource/Levels/JeG_Level4Siege.bin");
+			CSGD_WaveManager::GetInstance()->Stop(m_nBGMID);
+			CSGD_WaveManager::GetInstance()->UnloadWave(m_nBGMID);
+			m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/01 - Tank!.wav");
+			CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
 		}
 		break;
 	case 5:
@@ -142,7 +162,10 @@ void CGamePlayState::Update(float fElapsedTime)
 			UnloadLevel();
 			CPlayer::GetInstance()->ChangeState(CPlayerInfantryState::GetInstance());
 			LoadLevel("Resource/Levels/JeG_RebelBase.bin");
-
+			CSGD_WaveManager::GetInstance()->Stop(m_nBGMID);
+			CSGD_WaveManager::GetInstance()->UnloadWave(m_nBGMID);
+			m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/03 - Spokey Dokey.wav");
+			CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
 			CSGD_DirectInput::GetInstance()->ClearInput();
 			m_bLevelEnd = false;
 		}
@@ -154,6 +177,10 @@ void CGamePlayState::Update(float fElapsedTime)
 		CEventSystem::GetInstance()->ClearEvents();
 		UnloadLevel();
 		LoadLevel("Resource/Levels/JeG_Level1.bin");
+		CSGD_WaveManager::GetInstance()->Stop(m_nBGMID);
+		CSGD_WaveManager::GetInstance()->UnloadWave(m_nBGMID);
+		m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/02 - Rush.wav");
+		CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
 		m_bLevel1 = false;
 
 	}
@@ -164,6 +191,10 @@ void CGamePlayState::Update(float fElapsedTime)
 		CEventSystem::GetInstance()->ClearEvents();
 		UnloadLevel();
 		LoadLevel("Resource/Levels/JeG_Level2.bin");
+		CSGD_WaveManager::GetInstance()->Stop(m_nBGMID);
+		CSGD_WaveManager::GetInstance()->UnloadWave(m_nBGMID);
+		m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/09 - Piano Black.wav");
+		CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
 		m_bLevel2 = false;
 	}
 
@@ -173,6 +204,10 @@ void CGamePlayState::Update(float fElapsedTime)
 		CEventSystem::GetInstance()->ClearEvents();
 		UnloadLevel();
 		LoadLevel("Resource/Levels/ArtilleryLevel.bin");
+		CSGD_WaveManager::GetInstance()->Stop(m_nBGMID);
+		CSGD_WaveManager::GetInstance()->UnloadWave(m_nBGMID);
+		m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/04 - Bad Dog No Biscuits.wav");
+		CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
 		m_bLevel3 = false;
 	}
 
@@ -182,6 +217,10 @@ void CGamePlayState::Update(float fElapsedTime)
 		CEventSystem::GetInstance()->ClearEvents();
 		UnloadLevel();
 		LoadLevel("Resource/Levels/JeG_Level4Siege.bin");
+		CSGD_WaveManager::GetInstance()->Stop(m_nBGMID);
+		CSGD_WaveManager::GetInstance()->UnloadWave(m_nBGMID);
+		m_nBGMID = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/01 - Tank!.wav");
+		CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
 		m_bLevel4 = false;
 	}
 

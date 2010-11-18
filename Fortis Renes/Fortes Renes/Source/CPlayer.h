@@ -28,6 +28,7 @@ private:
 	bool m_bMoving;
 	bool m_bFiring;
 	bool m_bDriving;
+	int m_nWeaponSound;
 	unsigned char m_chResearchArmorLevel;
 	unsigned char m_chResearchWeaponLevel;
 	unsigned char m_chResearchConsumableLevel;
@@ -109,6 +110,7 @@ public:
 	void SetDriving(bool bDriving) { m_bDriving = bDriving; }
 	bool GetDriving() { return m_bDriving; }
 
+	int GetWeaponSound(void) { return m_nWeaponSound; }
 	void SetFacing(float x, float y) { m_vFacingNormal.fX = x; m_vFacingNormal.fY = y; }
 	void SetPlayerState(IPlayerState* pPlayerState) { m_pPlayerState = pPlayerState; }
 	void SetCurrentWeapon(int nCurrentWeapon) { m_nCurrentWeapon = nCurrentWeapon; }

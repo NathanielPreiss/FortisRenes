@@ -28,6 +28,7 @@ CPlayer::CPlayer(void)
 	m_fTimeBucket = 0.0f;
 	m_fConsumableTimer = 1.5f;
 	SetAnimation(CAnimationManager::GetInstance()->LoadAnimation("Resource\\Data\\Animations\\JeG_Player.bin"));
+	m_nWeaponSound = CSGD_WaveManager::GetInstance()->LoadWave("Resource/Sounds/Gunshot.wav");
 	GetAnimation()->currAnimation->Play();
 	SetWidth(20);
 	SetHeight(32);
@@ -321,15 +322,15 @@ bool CPlayer::CheckCollision(CBase* pBase )
 			if( GetPosY() < pBase->GetPosY() )
 			{
 				SetPosY(pBase->GetPosY() - ((GetHeight()*0.5f) + (pBase->GetHeight()*0.5f)));
-				int distx = (GetPosX() - (CCursor::GetInstance()->GetPosX()+CCamera::GetInstance()->GetPosX()))*0.25f;
-				int disty = (GetPosY() - (CCursor::GetInstance()->GetPosY()+CCamera::GetInstance()->GetPosY()))*0.25f;
+				float distx = (GetPosX() - (CCursor::GetInstance()->GetPosX()+CCamera::GetInstance()->GetPosX()))*0.25f;
+				float disty = (GetPosY() - (CCursor::GetInstance()->GetPosY()+CCamera::GetInstance()->GetPosY()))*0.25f;
 				CCamera::GetInstance()->UpdateCameraPos(GetPosX() - distx, GetPosY() - disty);
 			}
 			else
 			{
 				SetPosY(pBase->GetPosY() + ((GetHeight()*0.5f) + (pBase->GetHeight()*0.5f)));
-				int distx = (GetPosX() - (CCursor::GetInstance()->GetPosX()+CCamera::GetInstance()->GetPosX()))*0.25f;
-				int disty = (GetPosY() - (CCursor::GetInstance()->GetPosY()+CCamera::GetInstance()->GetPosY()))*0.25f;
+				float distx = (GetPosX() - (CCursor::GetInstance()->GetPosX()+CCamera::GetInstance()->GetPosX()))*0.25f;
+				float disty = (GetPosY() - (CCursor::GetInstance()->GetPosY()+CCamera::GetInstance()->GetPosY()))*0.25f;
 				CCamera::GetInstance()->UpdateCameraPos(GetPosX() - distx, GetPosY() - disty);
 			}
 		}
@@ -338,15 +339,15 @@ bool CPlayer::CheckCollision(CBase* pBase )
 			if( GetPosX() < pBase->GetPosX() )
 			{
 				SetPosX(pBase->GetPosX() - ((GetWidth()*0.5f) + (pBase->GetWidth()*0.5f)));
-				int distx = (GetPosX() - (CCursor::GetInstance()->GetPosX()+CCamera::GetInstance()->GetPosX()))*0.25f;
-				int disty = (GetPosY() - (CCursor::GetInstance()->GetPosY()+CCamera::GetInstance()->GetPosY()))*0.25f;
+				float distx = (GetPosX() - (CCursor::GetInstance()->GetPosX()+CCamera::GetInstance()->GetPosX()))*0.25f;
+				float disty = (GetPosY() - (CCursor::GetInstance()->GetPosY()+CCamera::GetInstance()->GetPosY()))*0.25f;
 				CCamera::GetInstance()->UpdateCameraPos(GetPosX() - distx, GetPosY() - disty);
 			}
 			else
 			{
 				SetPosX(pBase->GetPosX() + ((GetWidth()*0.5f) + (pBase->GetWidth()*0.5f)));
-				int distx = (GetPosX() - (CCursor::GetInstance()->GetPosX()+CCamera::GetInstance()->GetPosX()))*0.25f;
-				int disty = (GetPosY() - (CCursor::GetInstance()->GetPosY()+CCamera::GetInstance()->GetPosY()))*0.25f;
+				float distx = (GetPosX() - (CCursor::GetInstance()->GetPosX()+CCamera::GetInstance()->GetPosX()))*0.25f;
+				float disty = (GetPosY() - (CCursor::GetInstance()->GetPosY()+CCamera::GetInstance()->GetPosY()))*0.25f;
 				CCamera::GetInstance()->UpdateCameraPos(GetPosX() - distx, GetPosY() - disty);
 			}
 		}
@@ -422,8 +423,8 @@ void CPlayer::Update(float fElapsedTime)
 	CObjectManager::GetInstance()->GetMap()->m_vTileList[c][r].CallEvents(this);
 	
 	// Update the camera's position
-	int distx = (GetPosX() - (CCursor::GetInstance()->GetPosX()+CCamera::GetInstance()->GetPosX()))*0.25f;
-	int disty = (GetPosY() - (CCursor::GetInstance()->GetPosY()+CCamera::GetInstance()->GetPosY()))*0.25f;
+	float distx = (GetPosX() - (CCursor::GetInstance()->GetPosX()+CCamera::GetInstance()->GetPosX()))*0.25f;
+	float disty = (GetPosY() - (CCursor::GetInstance()->GetPosY()+CCamera::GetInstance()->GetPosY()))*0.25f;
 	CCamera::GetInstance()->UpdateCameraPos(GetPosX() - distx, GetPosY() - disty);
 
 	if(GetAnimation() != NULL && GetAnimation()->currSheet != NULL)

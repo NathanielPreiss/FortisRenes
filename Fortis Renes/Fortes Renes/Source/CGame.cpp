@@ -296,6 +296,7 @@ void CGame::MessageProc( CBaseMessage* pMsg )
 				fAngle = -fAngle;
 			
 			float temp = rand()/(float)RAND_MAX*D3DXToRadian(pCB->GetPlayer()->GetCurrWeapon()->GetAccuracy());
+			CSGD_WaveManager::GetInstance()->Play(pCB->GetPlayer()->GetWeaponSound());
 
 			CBullet *pBullet = new CBullet();
 			pBullet->SetOwner( pCB->GetPlayer() );
