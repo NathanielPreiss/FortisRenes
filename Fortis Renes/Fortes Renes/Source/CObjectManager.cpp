@@ -20,10 +20,10 @@ CObjectManager::~CObjectManager(void)
 void CObjectManager::UpdateObjects(float fElapsedTime)
 {
 	RECT rWindow;
-	rWindow.top = (LONG)(CCamera::GetInstance()->GetPosY());
-	rWindow.left = (LONG)(CCamera::GetInstance()->GetPosX());
-	rWindow.right = (LONG)(rWindow.left + CSGD_Direct3D::GetInstance()->GetPresentParams()->BackBufferWidth);
-	rWindow.bottom = (LONG)(rWindow.top + CSGD_Direct3D::GetInstance()->GetPresentParams()->BackBufferHeight);
+	rWindow.top = (LONG)(CCamera::GetInstance()->GetPosY() - 100);
+	rWindow.left = (LONG)(CCamera::GetInstance()->GetPosX() - 100);
+	rWindow.right = (LONG)(rWindow.left + CSGD_Direct3D::GetInstance()->GetPresentParams()->BackBufferWidth + 200);
+	rWindow.bottom = (LONG)(rWindow.top + CSGD_Direct3D::GetInstance()->GetPresentParams()->BackBufferHeight + 200);
 	RECT rDummy;
 
 	vector<CBase*>::iterator iter = m_vObjectList.begin();
