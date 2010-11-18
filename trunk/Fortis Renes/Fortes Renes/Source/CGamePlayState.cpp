@@ -59,7 +59,7 @@ void CGamePlayState::Enter(void)
 	CSGD_WaveManager::GetInstance()->SetVolume(m_nBGMID, CGame::GetInstance()->GetBGMVolume() );
 	CSGD_WaveManager::GetInstance()->Play( m_nBGMID, DSBPLAY_LOOPING );
 
-	CCamera::GetInstance()->UpdateCameraPos(CPlayer::GetInstance()->GetPosX(), CPlayer::GetInstance()->GetPosY());
+	//CCamera::GetInstance()->UpdateCameraPos(CPlayer::GetInstance()->GetPosX(), CPlayer::GetInstance()->GetPosY());
 
 	CEventSystem::GetInstance()->RegisterClient("begin.level",this);
 	CEventSystem::GetInstance()->RegisterClient("continue.level",this);
