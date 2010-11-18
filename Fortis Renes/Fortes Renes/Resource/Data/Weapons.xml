@@ -24,12 +24,12 @@
                 <m_fRateOfFire value="0.25"/>
                 <m_nMaxMagazine value="6"/>
                 <m_fReloadTime value="1.5"/>
-                <m_nBulletSpeed value="200"/>
+                <m_nBulletSpeed value="400"/>
                 <m_nSoundDistance value="200"/>
                 <m_nNumBulletsFired value="1"/>
          </pistol>
          <machinegun>
-                <m_nRange value="100"/>
+                <m_nRange value="200"/>
                 <m_nDamage value="10"/>
                 <m_nMaxAmmo value="250"/>
                 <m_nWeaponID value="2"/>
@@ -38,12 +38,12 @@
                 <m_fRateOfFire value="0.15"/>
                 <m_nMaxMagazine value="25"/>
                 <m_fReloadTime value="1.5"/>
-                <m_nBulletSpeed value="200"/>
+                <m_nBulletSpeed value="500"/>
                 <m_nSoundDistance value="300"/>
                 <m_nNumBulletsFired value="1"/>
          </machinegun>
          <rifle>
-                <m_nRange value="200"/>
+                <m_nRange value="800"/>
                 <m_nDamage value="40"/>
                 <m_nMaxAmmo value="50"/>
                 <m_nWeaponID value="3"/>
@@ -52,12 +52,12 @@
                 <m_fRateOfFire value="0.5"/>
                 <m_nMaxMagazine value="5"/>
                 <m_fReloadTime value="1"/>
-                <m_nBulletSpeed value="350"/>
+                <m_nBulletSpeed value="900"/>
                 <m_nSoundDistance value="300"/>
                 <m_nNumBulletsFired value="1"/>
          </rifle>
          <shotgun>
-                <m_nRange value="50"/>
+                <m_nRange value="150"/>
                 <m_nDamage value="50"/>
                 <m_nMaxAmmo value="25"/>
                 <m_nWeaponID value="4"/>
@@ -66,12 +66,12 @@
                 <m_fRateOfFire value="0.5"/>
                 <m_nMaxMagazine value="5"/>
                 <m_fReloadTime value="1.5"/>
-                <m_nBulletSpeed value="200"/>
+                <m_nBulletSpeed value="500"/>
                 <m_nSoundDistance value="400"/>
                 <m_nNumBulletsFired value="10"/>
          </shotgun>
          <bazooka>
-                <m_nRange value="500"/>
+                <m_nRange value="1000"/>
                 <m_nDamage value="150"/>
                 <m_nMaxAmmo value="10"/>
                 <m_nWeaponID value="5"/>
@@ -80,7 +80,7 @@
                 <m_fRateOfFire value="1"/>
                 <m_nMaxMagazine value="2"/>
                 <m_fReloadTime value="3"/>
-                <m_nBulletSpeed value="150"/>
+                <m_nBulletSpeed value="400"/>
                 <m_nSoundDistance value="500"/>
                 <m_nNumBulletsFired value="1"/>
          </bazooka>
@@ -94,12 +94,13 @@
                 <m_fRateOfFire value="0.1"/>
                 <m_nMaxMagazine value="500"/>
                 <m_fReloadTime value="5"/>
-                <m_nBulletSpeed value="600"/>
+                <m_nBulletSpeed value="700"/>
                 <m_nSoundDistance value="1000"/>
                 <m_nNumBulletsFired value="5"/>
          </rynov>
         
 </weapons>
+
 
 
 
