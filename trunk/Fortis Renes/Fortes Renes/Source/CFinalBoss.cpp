@@ -17,7 +17,7 @@ CFinalBoss::CFinalBoss(void) : CEnemy(WEP_RIFLE)
 	SetHeight(32);
 	SetVelX(0.0f);
 	SetVelY(0.0f);
-	SetHealth(2000);
+	SetHealth(20000);
 	SetArmor(50);
 	m_vDirection.fX = 0.0f;
 	m_vDirection.fY = 1.0f;
