@@ -10,6 +10,7 @@
 #include "CGameOverState.h"
 #include "CMainMenuState.h"
 #include "CGamePlayState.h"
+#include "CPlayer.h"
 #include "DirectX Wrappers/CSGD_WaveManager.h"
 #include "DirectX Wrappers/CSGD_Direct3D.h"
 #include "DirectX Wrappers/CSGD_TextureManager.h"
@@ -52,9 +53,19 @@ bool CGameOverState::Input(void)
 		case 0:
 			CEventSystem::GetInstance()->ClearEvents();
 			CGamePlayState::GetInstance()->UnloadLevel();
+			CSGD_DirectInput::GetInstance()->ClearInput();
+			//CGamePlayState::GetInstance()->SetLevelBegun(false);
+
+			// Replenish Ammo
+			for(int i = 0; i < CPlayer::GetInstance()->GetNumWeapons(); i++)
+				CPlayer::GetInstance()->GetWeapon(i)->SetAmmo(CPlayer::GetInstance()->GetWeapon(i)->GetMaxAmmo());
+
+			CPlayer::GetInstance()->SetHealth(CPlayer::GetInstance()->GetMaxHealth());
+
 			CGamePlayState::GetInstance()->LoadLevelHelper();
 			CGamePlayState::GetInstance()->SetDead(false);
-			CGame::GetInstance()->RemoveTopState();
+			while(CGame::GetInstance()->GetGameStates()->size() != 1)
+				CGame::GetInstance()->RemoveTopState();
 			break;
 		case 1:
 			CGame::GetInstance()->ChangeState(CMainMenuState::GetInstance());
@@ -63,11 +74,12 @@ bool CGameOverState::Input(void)
 	}	
 	return true;
 
-	return true;
+	//return true;
 }
 void CGameOverState::Update(float fElapsedTime)
 {
-	(*m_pGS)[m_pGS->size()-2]->Update(fElapsedTime);
+	//(*m_pGS)[m_pGS->size()-2]->Update(fElapsedTime);
+	
 }
 void CGameOverState::Render(void)
 {

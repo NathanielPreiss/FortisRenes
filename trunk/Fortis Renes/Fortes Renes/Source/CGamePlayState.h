@@ -69,6 +69,9 @@ public:
 	void SetDead(bool bDead) { m_bDead = bDead; }
 	bool GetDead(void) { return m_bDead; }
 
+	void SetLevelBegun(bool bLevelBegun) { m_bLevelBegun = bLevelBegun; }
+	bool GetLevelBegun(void) { return m_bLevelBegun; }
+
 	int GetBGMID(void)	{ return m_nBGMID; }
 	CFinalBoss* GetFinalBoss() { return FinalBoss; }
 	void PushEmitter(CEmitter* pEmitter) { m_vEmitter.push_back(pEmitter); }
