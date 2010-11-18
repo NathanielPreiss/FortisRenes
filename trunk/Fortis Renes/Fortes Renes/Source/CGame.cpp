@@ -386,6 +386,7 @@ void CGame::MessageProc( CBaseMessage* pMsg )
 
 				if( pEnemy->GetEnemyID() == ENEMY_TANK )
 				{
+					pEnemy->SetCurrAnimation("Fire");
 					pBullet = new CRocket(1.0f);
 					pBullet->SetOwner( pEnemy );
 					pBullet->SetPosX( pEnemy->GetTarget()->GetPosX());

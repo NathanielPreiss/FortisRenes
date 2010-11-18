@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Sheet Name="Idle Tank (2).PNG" NumAnimations="2">
+  <Animation0 Name="Idle" FrameDuration="0.25" Looping="True" NumFrames="1">
+    <Frame0 DrawRect="{X=0,Y=0,Width=64,Height=88}" CollisionRect="{X=0,Y=0,Width=0,Height=0}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation0>
+  <Animation1 Name="Fire" FrameDuration="0.25" Looping="False" NumFrames="4">
+    <Frame0 DrawRect="{X=66,Y=0,Width=64,Height=88}" CollisionRect="{X=0,Y=0,Width=0,Height=0}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame1 DrawRect="{X=131,Y=0,Width=64,Height=88}" CollisionRect="{X=0,Y=0,Width=0,Height=0}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame2 DrawRect="{X=197,Y=0,Width=64,Height=88}" CollisionRect="{X=0,Y=0,Width=0,Height=0}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+    <Frame3 DrawRect="{X=262,Y=0,Width=64,Height=88}" CollisionRect="{X=0,Y=0,Width=0,Height=0}" Trigger="False" TriggerName="Trigger" AnchorX="0" AnchorY="0" />
+  </Animation1>
+</Sheet>

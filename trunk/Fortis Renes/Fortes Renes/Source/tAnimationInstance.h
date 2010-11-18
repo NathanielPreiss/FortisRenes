@@ -39,7 +39,7 @@ struct tAnimationInstance
 
 	tAnimationInstance();
 
-	void Render(float fPosX, float fPosY, float fScaleX, float fScaleY);
+	void Render(float fPosX, float fPosY, float fScaleX, float fScaleY, float fRotX = 0.000000000000f, float fRotY = 0.0000000000000f, float fRot = 0.000000000000f);
 
 	void Update(float fElapsedTime);
 };

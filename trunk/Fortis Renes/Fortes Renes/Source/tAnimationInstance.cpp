@@ -10,9 +10,9 @@ tAnimationInstance::tAnimationInstance()
 	currSheet		= NULL;
 }
 
-void tAnimationInstance::Render(float fPosX, float fPosY, float fScaleX, float fScaleY)
+void tAnimationInstance::Render(float fPosX, float fPosY, float fScaleX, float fScaleY, float fRotX, float fRotY, float fRot)
 {
-	CSGD_TextureManager::GetInstance()->Draw(currSheet->ImageID, (int)fPosX, (int)fPosY, fScaleX, fScaleY, &currFrame->rDraw);
+	CSGD_TextureManager::GetInstance()->Draw(currSheet->ImageID, (int)fPosX, (int)fPosY, fScaleX, fScaleY, &currFrame->rDraw, fRotX, fRotY, fRot);
 }
 
 void tAnimationInstance::Update(float fElapsedTime)

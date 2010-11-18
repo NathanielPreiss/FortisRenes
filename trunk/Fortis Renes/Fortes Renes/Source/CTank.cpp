@@ -8,6 +8,9 @@
 CTank::CTank(void)
 {
 	SetCoverObject(false);
+
+
+
 }
 
 CTank::~CTank(void)
@@ -18,10 +21,12 @@ void CTank::Render(float fCamPosX, float fCamPosY)
 {
 	CSGD_TextureManager::GetInstance()->Draw(GetImageID(), (int)((GetPosX() - GetWidth()*0.5f) - fCamPosX), 
 								(int)((GetPosY() - GetHeight() *0.5f) - fCamPosY), 1.0f, 1.0f, 0, GetWidth()*0.5f, GetHeight()*0.5f, m_fRot);
+	
 }
 
 void CTank::Update(float fElapsedTime)
 {
+	
 }
 
 void CTank::HandleEvent( CEvent* pEvent )
