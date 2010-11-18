@@ -18,7 +18,11 @@ CEnemyTank::CEnemyTank() : CEnemy(WEP_PISTOL)
 	SetVelY(0.0f);
 	SetSpeed(50.0f);
 	SetHealth(GetMaxHealth());
-	SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/Idle Tank.png", D3DCOLOR_XRGB(255,0,255)));
+	//SetImageID(CSGD_TextureManager::GetInstance()->LoadTexture("Resource/Graphics/Idle Tank.png", D3DCOLOR_XRGB(255,0,255)));
+
+	SetAnimation(CAnimationManager::GetInstance()->LoadAnimation("resource\\data\\animations\\JeG_Tank.bin"));
+	SetCurrAnimation("Idle");
+	GetAnimation()->currAnimation->Play();
 }
 
 CEnemyTank::~CEnemyTank()
@@ -28,6 +32,11 @@ CEnemyTank::~CEnemyTank()
 void CEnemyTank::Update(float fElapsedTime)
 {
 	m_fTimeBucket += fElapsedTime;
+
+	GetAnimation()->Update(fElapsedTime);
+
+	if(GetAnimation()->currAnimation->bIsPlaying != true)
+		SetCurrAnimation("Idle");
 
 	tVector2D toTarget;
 	tVector2D originalFacing;
@@ -99,6 +108,9 @@ bool CEnemyTank::CheckCollision(CBase* pBase)
 
 void CEnemyTank::Render(float fCamPosX, float fCamPosY)
 {
-	CSGD_TextureManager::GetInstance()->Draw(GetImageID(), (int)(GetPosX() - (GetWidth() * 0.5f) - CCamera::GetInstance()->GetPosX()),
-											(int)(GetPosY() - (GetHeight() * 0.5f) - CCamera::GetInstance()->GetPosY()), 1.0f, 1.0f, 0, (GetWidth()*0.5f),(GetHeight()*0.5f),m_fRotation);
+	//CSGD_TextureManager::GetInstance()->Draw(GetImageID(), (int)(GetPosX() - (GetWidth() * 0.5f) - CCamera::GetInstance()->GetPosX()),
+	//										(int)(GetPosY() - (GetHeight() * 0.5f) - CCamera::GetInstance()->GetPosY()), 1.0f, 1.0f, 0, (GetWidth()*0.5f),(GetHeight()*0.5f),m_fRotation);
+
+	GetAnimation()->Render(((GetPosX() - GetWidth()*0.5f) - fCamPosX), ((GetPosY() - GetHeight() *0.5f) - fCamPosY), 1.0f, 1.0f, (GetWidth()*0.5f),(GetHeight()*0.5f), m_fRotation);
+
 }

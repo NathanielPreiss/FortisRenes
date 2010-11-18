@@ -34,6 +34,7 @@ struct tAnimation
 	//float fPosX, fPosY;
 
 	bool bIsPlaying;
+
 	/**
 	 * vector of frames for animation
 	 */
