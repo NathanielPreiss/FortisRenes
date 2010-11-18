@@ -116,6 +116,8 @@ public:
 	void SetMoney(int nMoney) { m_nMoney = nMoney; }
 	void SetRep(int nRep) { m_nRep = nRep; }
 	void SetTalkBool(bool bCanTalk) { m_bCanTalk = bCanTalk; }
+	void SetNumWeapons(int nNumWeapons) { m_nNumWeapons = nNumWeapons; }
+
 
 	void Update(float fElapsedTime);
 	void Render(float fCamPosX, float fCamPosY);

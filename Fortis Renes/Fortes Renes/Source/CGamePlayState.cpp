@@ -17,6 +17,7 @@
 #include "CShopState.h"
 #include "CProgressCenterState.h"
 #include "CGamePausedState.h"
+#include "CGameOverState.h"
 #include "COutroCinematicState.h"
 #include "CDialogueManager.h"
 #include "CLoadState.h"
@@ -211,16 +212,17 @@ void CGamePlayState::Update(float fElapsedTime)
 		m_bNextLevel = false;
 	}
 
-	if( CPlayer::GetInstance()->GetHealth() <= 0 )
-	{
-		CEventSystem::GetInstance()->ClearEvents();
-		UnloadLevel();
+	if( CPlayer::GetInstance()->GetHealth() <= 0 && !GetDead())
+	{ 
+		SetDead(true);
 
-		// Replenish Ammo
-		for(int i = 0; i < CPlayer::GetInstance()->GetNumWeapons(); i++)
-			CPlayer::GetInstance()->GetWeapon(i)->SetAmmo(CPlayer::GetInstance()->GetWeapon(i)->GetMaxAmmo());
+		vector<IGameState*> vec = *(CGame::GetInstance()->GetGameStates());
+		
+		if(vec[vec.size() - 1] == CTalkingState::GetInstance())
+			CGame::GetInstance()->RemoveTopState();
 
-		LoadLevelHelper();
+
+		CGame::GetInstance()->AddState(CGameOverState::GetInstance());
 	}
 
 	CObjectManager::GetInstance()->UpdateObjects(fElapsedTime);
@@ -244,6 +246,7 @@ void CGamePlayState::Render(void)
 	if(m_bRhinoCheat)
 	{
 		CBitmapFont::GetInstance()->Draw("CHEAT ENABLED", 5, 5, 0.5f);
+		CPlayer::GetInstance()->SetNumWeapons(6);
 	}
 }
 void CGamePlayState::Exit(void)
