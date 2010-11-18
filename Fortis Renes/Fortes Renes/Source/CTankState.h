@@ -13,6 +13,7 @@ class CTankState : public IPlayerState, IListener
 private:
 	int m_nBaseImageID;
 	int m_nTurretImageID;
+	float m_fTimer;
 	float m_fRot;
 	float m_fRotationRate;
 	float m_fSpeed;

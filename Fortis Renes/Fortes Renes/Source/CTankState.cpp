@@ -49,6 +49,7 @@ void CTankState::Enter()
 	pPlayer->SetCurrentWeapon(WEP_BAZOOKA);
 	pPlayer->SetHealth(650);
 	pPlayer->SetMaxHealth(650);
+	m_fTimer = 0.8f;
 
 	m_fRot = CPlayer::GetInstance()->GetTempTank()->GetRotation();
 	m_vDirection = CPlayer::GetInstance()->GetTempTank()->GetDirection();
@@ -60,6 +61,8 @@ void CTankState::Enter()
 
 void CTankState::Update(float fElapsedTime)
 {
+	m_fTimer -= fElapsedTime;
+
 	if( CSGD_DirectInput::GetInstance()->KeyDown( DIK_W ) )
 	{
 		SetSpeed( GetSpeed() + GetAccelerationRate() * fElapsedTime );
@@ -103,8 +106,12 @@ void CTankState::Update(float fElapsedTime)
 
 	if(CSGD_DirectInput::GetInstance()->MouseButtonDown(0))
 	{
-		CEventSystem::GetInstance()->SendEvent("big.bang", pPlayer);
-		CMessageSystem::GetInstance()->SendMsg(new CCreatePlayerBullet(pPlayer));
+		if(m_fTimer < 0)
+		{
+			CEventSystem::GetInstance()->SendEvent("big.bang", pPlayer);
+			CMessageSystem::GetInstance()->SendMsg(new CCreatePlayerBullet(pPlayer));
+			m_fTimer = 0.8f;
+		}
 	}
 
 	// Turret Rotation
